@@ -1,4 +1,26 @@
 #header {
     background-color: aqua;
-    height: 80px;
+    height: 100px;
+}
+.kirja {
+    width: 50px;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.kirja >img {
+    max-height: 360px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.h1 {
+    font-family: "Poppins", sans-serif;
+}
+p {
+    font-family: "Open Sans", sans-serif;
+}
+.Poppins {
+    font-family: "Poppins", sans-serif !important;
+}
+.OpenSans {
+    font-family: "Open Sans", sans-serif !important;
 }
