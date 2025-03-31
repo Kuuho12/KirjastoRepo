@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+    />
+    <style>
+      * {
+        font-family: "Open Sans";
+      }
+      .blue-button {
+        background-color: #157ffb;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 7px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .profile-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid #707070;
+        border-radius: 5px;
+        width: 300px;
+        height: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        gap: 25px;
+        font-family: "Open Sans";
+      }
+
+      .menu-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        color: black;
+        padding: 10px 20px;
+        border-radius: 7px;
+        border: 1px solid #707070;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s;
+        width: 225px;
+        font-size: 19px;
+        position: relative;
+      }
+
+      .menu-button span {
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      .menu-button:hover {
+        background-color: #157ffb;
+        color: white;
+      }
+
+      .menu-button:hover img {
+        filter: brightness(0) saturate(100%) invert(1);
+      }
+
+      .menu-button img {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: filter 0.3s;
+      }
+      .svg-icon {
+        width: 100%;
+        height: 100%;
+        filter: brightness(0) saturate(100%) invert(1);
+      }
+
+      .cart-button {
+        border-radius: 10px;
+        padding: 4px; /* Remove padding to fit the SVG */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 80px;
+      }
+
+      .dropbtn {
+        background-color: #157ffb;
+        color: white;
+        padding: 8px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .dropbtn img {
+        width: auto; /* Adjust the width as needed */
+        height: 20px; /* Ensure the height is also set */
+        margin-left: 1px; /* Add some space between text and image */
+      }
+
+      .dropbtn .arrow {
+        filter: brightness(0) saturate(100%) invert(1);
+      }
+
+      /* Container needed to position the dropdown content */
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown content (hidden by default) */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      /* Links inside the dropdown */
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdown-content a:hover {
+        background-color: #f1f1f1;
+      }
+
+      /* Show the dropdown menu when the button is clicked */
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Generic button -->
+    <button style="font-size: larger" class="blue-button">Kirjaudu</button>
+
+    <br />
+
+    <!-- Profile container -->
+    <div class="profile-container">
+      <button class="menu-button">
+        <span>Käyttäjä tiedot</span> <img src="grey-arrow.svg" alt="" />
+      </button>
+      <button class="menu-button">
+        <span>Tilaukset</span> <img src="grey-arrow.svg" alt="" />
+      </button>
+      <button class="menu-button">
+        <span>Tilaushistoria</span> <img src="grey-arrow.svg" alt="" />
+      </button>
+      <button class="menu-button">
+        <span>Lainaukset</span> <img src="grey-arrow.svg" alt="" />
+      </button>
+      <button class="menu-button">
+        <span>Toivelista</span> <img src="grey-arrow.svg" alt="" />
+      </button>
+    </div>
+
+    <br />
+
+    <!-- Cart button -->
+    <button style="font-size: larger" class="blue-button cart-button">
+      <img class="svg-icon" src="cart.svg" alt="" srcset="" />
+    </button>
+
+    <br />
+
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown()">
+        <img src="Flag_of_Finland.svg.png" />
+        <img src="triangle-down.svg" class="arrow" />
+      </button>
+      <div id="dropdown-content" class="dropdown-content">
+        <a href="#">english</a>
+        <a href="#">swedish</a>
+      </div>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
