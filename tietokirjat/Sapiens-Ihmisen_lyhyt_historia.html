@@ -9,6 +9,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <title>Sapiens - Ihmisen lyhyt historia</title>
+    <style>
+        .paacontainer {
+            justify-content: center;
+        }
+        .left-0 {
+            position: relative !important;
+            left: 0px;
+            justify-content: left;
+            align-items: start;
+            align-content: start;
+            justify-items: start;
+            width: 25%;
+        }
+    </style>
 </head>
 <body>
         <header>
@@ -33,17 +47,43 @@
             </nav>
         </header>
         <div class="d-flex justify-content-center h1 mb-5">Sapiens - Ihmisen lyhyt historia</div>
-        <div class="container-fluid border d-flex">
-            <div class="img-container border container">
+        <div class="container-fluid paacontainer d-flex">
+            <div class="img-container container">
                 <img class="border p-3" src="../kuvat/ba2f8fee2e054899a9d07d8af2f35d539789524035699_1.webp" alt="">
-                <p class="h3">Tekijä: </p>
-                <p class="h3">Katergoria: </p>
-                <p class="h3">Hinta: </p>
+                <p class="h4">Tekijä: </p>
+                <p class="h4">Katergoria: </p>
+                <p class="h4">Hinta: </p>
             </div>
-            <div class="container border kuvauscontainer">
+            <div class="container kuvauscontainer">
                 <p class="d-flex h2 mt-5">Kuvaus</p>
-                <p>Lorem ipsum</p>
+                <p class="d-flex">Kuinka ihmisestä tuli ihminen?
+                    <br><br>
+                    Yuval Noah Harari käy kirjassaan Sapiens. Ihmisen lyhyt historia läpi koko ihmisen historian, aina ensimmäisistä maan kamaralla kulkeneista ihmisistä kohti nykypäivää.
+                    <br><br>
+                    100 000 vuotta sitten maapallolla asui ainakin kuusi ihmislajia. Nykyään lajeja on vain yksi: Homo sapiens. Miten meidän lajimme onnistui päihittämään muut lajit? Miten metsästäjistä tuli kaupunkien ja kuningaskuntien rakentajia? Miten ryhdyimme uskomaan jumaliin, valtioihin ja ihmisoikeuksiin sekä luottamaan rahaan, kirjoihin ja lakeihin? Miksi alistuimme byrokratialle, aikatauluille ja kuluttamiselle? Ja millaiseksi maailma on muuttumassa?
+                    <br><br>
+                    Kirjassaan Sapiens. Ihmisen lyhyt historia Yuval Noah Harari käy läpi koko ihmisen historian, aina ensimmäisistä maan kamaralla kulkeneista ihmisistä nykyhetkeen. Lajimme kehitykseen on vaikuttanut useita radikaaleja - ja joskus tuhoisiakin - läpimurtoja. Miten historian virrat ovat muovanneet ihmistä, yhteiskuntaa ja kaikkea ympärillämme?
+                    <br><br>
+                    Rohkea, laaja-alainen ja provokatiivinen teos haastaa kaiken sen, minkä luulimme tietävämme ihmisyydestä.</p>
             </div>
         </div>
+        <footer>
+            <div class="footer-content">
+                <p class="contact-info">
+                    📧 asiakaspalvelu@tarinatupa.fi | 📞 044 123 1234 | 📍 Kotkantie 2, 90250 Oulu
+                </p>
+                <p class="opening-hours">
+                    Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu
+                </p>
+                <p class="newsletter">
+                    <a href="#">Tilaa uutiskirjeemme</a>
+                </p>
+            </div>
+            <div class="social-icons">
+                <a href="#" target="_blank"><img src="icons/facebook.svg" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="icons/x.svg" alt="X (Twitter)"></a>
+                <a href="#" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
+            </div>
+        </footer>
 </body>
 </html>
