@@ -11,6 +11,35 @@
     <title>Tarinatupa</title>
 </head>
 <body>
+    <script>
+        const visibleCount = 4;
+    
+        function nextSlide(id) {
+            const track = document.getElementById(id);
+            const totalItems = track.children.length;
+            const currentIndex = parseInt(track.getAttribute('data-index')) || 0;
+            const nextIndex = (currentIndex + 1) % Math.ceil(totalItems / visibleCount);
+            track.style.transform = `translateX(-${nextIndex * 100}%)`;
+            track.setAttribute('data-index', nextIndex);
+        }
+    
+        function prevSlide(id) {
+            const track = document.getElementById(id);
+            const totalItems = track.children.length;
+            const currentIndex = parseInt(track.getAttribute('data-index')) || 0;
+            const nextIndex = (currentIndex - 1 + Math.ceil(totalItems / visibleCount)) % Math.ceil(totalItems / visibleCount);
+            track.style.transform = `translateX(-${nextIndex * 100}%)`;
+            track.setAttribute('data-index', nextIndex);
+        }
+    
+        // Initial setup
+        window.addEventListener('DOMContentLoaded', () => {
+            const tracks = document.querySelectorAll('.carousel-track');
+            tracks.forEach(track => {
+                track.setAttribute('data-index', '0');
+            });
+        });
+    </script>
     <header>
         <nav class="navbar">
             <button class="genre-button">Genret</button>
@@ -37,6 +66,56 @@
         genreistä - fantasian lumoavista maailmoista tietokirjojen kiehtoviin oivalluksiin. Valitse painettu kirja, e-kirja 
         tai äänikirja ja sukella seikkailuun. Tule löytämään uutta luettavaa ja anna tarinoiden viedä mukanaan!
     </p>
+    <br>
+    <section class="carousel-section">
+        <h2 class="h2">Uutuudet</h2>
+        <div class="custom-carousel">
+            <button class="carousel-btn left" onclick="prevSlide('uutuudet')">&#10094;</button>
+            <div class="carousel-track" id="uutuudet">
+                <!-- 12 kirjaa -->
+                <img src="kuvat/RatkommeMurhia.PNG" alt="Kirja 1">
+                <img src="kuvat/OnyxStorm.PNG" alt="Kirja 2">
+                <img src="kuvat/HeikkiSilvennoinenNousutJaLaskut.PNG" alt="Kirja 3">
+                <img src="kuvat/KylmaKrematorio.webp" alt="Kirja 4">
+                <img src="kuvat/ToivoaVersovatPäivät.PNG" alt="Kirja 5">
+                <img src="kuvat/PunainenVerkko.PNG" alt="Kirja 6">
+                <img src="kuvat/TheJFKConspiracy.PNG" alt="Kirja 7">
+                <img src="kuvat/The5TypesOfWealth.webp" alt="Kirja 8">
+                <img src="kuvat/TheWindsOfWinter.PNG" alt="Kirja 9">
+                <img src="kuvat/TheLetThemTheory.webp" alt="Kirja 10">
+                <img src="kuvat/SapiensIhmisenLyhytHistoria.webp" alt="Kirja 11">
+                <img src="kuvat/SadanVuodenYksinäisyys.PNG" alt="Kirja 12">
+            </div>
+            <button class="carousel-btn right" onclick="nextSlide('uutuudet')">&#10095;</button>
+        </div>
+    </section>
+
+    <section class="carousel-section">
+        <h2 class="h2">Suosituimmat</h2>
+        <div class="custom-carousel">
+            <button class="carousel-btn left" onclick="prevSlide('suosituimmat')">&#10094;</button>
+            <div class="carousel-track" id="suosituimmat">
+                <!-- 12 kirjaa -->
+                <img src="kuvat/PimeydenSydän.PNG" alt="Kirja 1">
+                <img src="kuvat/SuonVilliLaulu.PNG" alt="Kirja 2">
+                <img src="kuvat/SotaJaRauha.PNG" alt="Kirja 3">
+                <img src="kuvat/AndThenThereWereNone.PNG" alt="Kirja 4">
+                <img src="kuvat/SinuheEgyptiläinen.PNG" alt="Kirja 5">
+                <img src="kuvat/TuntematonSotilas.PNG" alt="Kirja 6">
+                <img src="kuvat/HarryPotterJaViisastenKivi.PNG" alt="Kirja 7">
+                <img src="kuvat/TäälläPohjantähdenAlla.PNG" alt="Kirja 8">
+                <img src="kuvat/SunTzu'sTheArtOfWar.avif" alt="Kirja 9">
+                <img src="kuvat/TheLordOfTheRings.PNG" alt="Kirja 10">
+                <img src="kuvat/SinunTahtesiTaalla.webp" alt="Kirja 11">
+                <img src="kuvat/Hohto.PNG" alt="Kirja 12">
+            </div>
+            <button class="carousel-btn right" onclick="nextSlide('suosituimmat')">&#10095;</button>
+        </div>
+    </section>
+
+<!-- Muista sisällyttää Bootstrapin JS-tiedostot ennen <body> loppua -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <br>
     <footer>
         <div class="footer-content">
