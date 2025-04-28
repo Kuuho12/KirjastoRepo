@@ -20,33 +20,33 @@
     <header>
         <nav class="navbar">
             <div class="dropdown">
-                <button class="genre-button btn dropdown" data-toggle="dropdown">Genret</button>
-                <div class="dropdown-menu poppins">
-                    <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
-                    <a class="dropdown-item" href="kaunokirjallisuus.html">Kaunokirjallisuus</a>
-                    <a class="dropdown-item" href="tietokirjat.html">Tietokirjat</a>
-                    <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
-                    <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
-                    <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
-                    <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
-                    <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
-                </div>
-                </div>
+            <button class="genre-button btn dropdown" data-toggle="dropdown">Genret</button>
+            <div class="dropdown-menu poppins genre-dropdown">
+                <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
+                <a class="dropdown-item" href="kaunokirjallisuus.html">Kaunokirjallisuus</a>
+                <a class="dropdown-item" href="tietokirjat.html">Tietokirjat</a>
+                <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
+                <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
+                <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
+                <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
+                <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
+            </div>
+            </div>
             <div class="logo">
                 <img src="kuvat/Tarinatupa_logo.png" alt="Tarinatuvan logo">
                 <span class="poppins">Tarinatupa</span>
             </div>
-            <div class="search-bar">
+            <div class="search-bar kirjahaku">
                 <input type="text" placeholder="Etsi kirjoja...">
                 <button class="filter-button">🔍</button>
             </div>
             <div class="actions">
                 <select class="language-selector">
-                    <option value="fi">Suomi</option>
-                    <option value="en">English</option>
+                    <option class="fi" value="fi">Suomi</option>
+                    <option class="en" value="en">English</option>
                 </select>
-                <button class="cart-button">🛒</button>
-                <button class="login-button">Kirjaudu</button>
+                <a href="ostoskori.html"><button class="blue-button cart-button">🛒</button></a>
+                <a href="kirjaudu.html"><button class="blue-button login-button">Kirjaudu</button></a>
             </div>
         </nav>
     </header>
@@ -143,5 +143,53 @@
             <a href="#" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
         </div>
     </footer>
+    <script defer>
+        const body = document.querySelector("body");
+        const html = document.querySelector("html");
+        const langSelect = document.querySelector(".language-selector")
+        const genreButton = document.querySelector(".genre-button")
+        const genreOptions = document.querySelectorAll(".genre-dropdown .dropdown-item")
+        const loginButton = document.querySelector(".login-button")
+        const searchBar = document.querySelector(".kirjahaku input")
+        const openingHours = document.querySelector(".opening-hours")
+        const newsletter = document.querySelector(".newsletter a") //jokaiselle sivulle tarpeelliset loppuvat tähän
+        const esittely = document.querySelector(".esittely")
+        const uutuudet = document.querySelector(".uutuudet")
+        const suosituimmat = document.querySelector(".suosituimmat")
+
+        const genreOptionsFi = ["Fantasiakirjat", "Kaunokirjallisuus", "Tietokirjat", "Kauhukirjat", "Lastenkirjat", "Nuortenkirjat", "E-kirjat", "Äänikirjat"]
+        const genreOptionsEn = ["Fantasy books", "Fiction", "Non-fiction", "Horror books", "Children's books", "Young adult books", "E-books", "Audiobooks"]
+
+
+        langSelect.addEventListener("change", () => {
+            if(html.getAttribute("lang")=="fi") {
+                body.setAttribute("lang", "en");
+                html.setAttribute("lang", "en");
+                genreButton.textContent="Genres"
+                loginButton.textContent="Login"
+                searchBar.setAttribute("placeholder", "Search books...")
+                openingHours.textContent="Opening hours: Mon-Fri 9-18, Sat 10-16, Sun closed"
+                newsletter.textContent="Subscribe to our newsletter"
+                genreOptions.forEach((link, index) => link.textContent = genreOptionsEn[index]);
+                esittely.textContent="Tarinatupa is a bookstore and lending library where stories come to life. We have a wide selection of books from different\<br>\genres - from the enchanting worlds of fantasy to the fascinating insights of non-fiction. Choose a printed book, e-book\<br>\or audiobook and dive into the adventure. Come and find something new to read and let the stories take you away!"
+                uutuudet.textContent="New Books"
+                suosituimmat.textContent="Most popular"
+                console.log("english");
+            } else {
+                body.setAttribute("lang", "fi");
+                html.setAttribute("lang", "fi");
+                genreButton.textContent="Genret"
+                loginButton.textContent="Kirjaudu"
+                searchBar.setAttribute("placeholder", "Etsi kirjoja...")
+                openingHours.textContent="Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu"
+                newsletter.textContent="Tilaa uutiskirjeemme"
+                genreOptions.forEach((link, index) => link.textContent = genreOptionsFi[index]);
+                esittely.textContent="Tarinatupa on kirjakauppa ja lainaamo, jossa tarinat heräävät eloon. Meiltä löydät laajan valikoiman kirjoja eri \<br>\genreistä - fantasian lumoavista maailmoista tietokirjojen kiehtoviin oivalluksiin. Valitse painettu kirja, e-kirja \<br>\tai äänikirja ja sukella seikkailuun. Tule löytämään uutta luettavaa ja anna tarinoiden viedä mukanaan!"
+                uutuudet.textContent="Uutuudet"
+                suosituimmat.textContent="Suosituimmat"
+                console.log("finnish");
+            }
+        });
+    </script>
 </body>
 </html>

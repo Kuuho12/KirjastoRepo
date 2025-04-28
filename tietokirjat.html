@@ -18,33 +18,33 @@
     <header>
         <nav class="navbar">
             <div class="dropdown">
-                <button class="genre-button btn dropdown" data-toggle="dropdown" aria-expanded="false">Genret</button>
-                <div class="dropdown-menu poppins">
-                    <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
-                    <a class="dropdown-item" href="kaunokirjallisuus.html">Kaunokirjallisuus</a>
-                    <a class="dropdown-item" href="tietokirjat.html">Tietokirjat</a>
-                    <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
-                    <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
-                    <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
-                    <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
-                    <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
-                </div>
+            <button class="genre-button btn dropdown" data-toggle="dropdown">Genret</button>
+            <div class="dropdown-menu poppins genre-dropdown">
+                <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
+                <a class="dropdown-item" href="kaunokirjallisuus.html">Kaunokirjallisuus</a>
+                <a class="dropdown-item" href="tietokirjat.html">Tietokirjat</a>
+                <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
+                <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
+                <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
+                <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
+                <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
+            </div>
             </div>
             <div class="logo">
                 <img src="kuvat/Tarinatupa_logo.png" alt="Tarinatuvan logo">
                 <span class="poppins">Tarinatupa</span>
             </div>
-            <div class="search-bar">
+            <div class="search-bar kirjahaku">
                 <input type="text" placeholder="Etsi kirjoja...">
                 <button class="filter-button">🔍</button>
             </div>
             <div class="actions">
                 <select class="language-selector">
-                    <option value="fi">Suomi</option>
-                    <option value="en">English</option>
+                    <option class="fi" value="fi">Suomi</option>
+                    <option class="en" value="en">English</option>
                 </select>
-                <button class="cart-button">🛒</button>
-                <button class="login-button">Kirjaudu</button>
+                <a href="ostoskori.html"><button class="blue-button cart-button">🛒</button></a>
+                <a href="kirjaudu.html"><button class="blue-button login-button">Kirjaudu</button></a>
             </div>
         </nav>
     </header>

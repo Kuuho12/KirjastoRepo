@@ -70,8 +70,8 @@
                     <option class="fi" value="fi">Suomi</option>
                     <option class="en" value="en">English</option>
                 </select>
-                <button class="blue-button cart-button">🛒</button>
-                <button class="blue-button login-button">Kirjaudu</button>
+                <a href="ostoskori.html"><button class="blue-button cart-button">🛒</button></a>
+                <a href="kirjaudu.html"><button class="blue-button login-button">Kirjaudu</button></a>
             </div>
         </nav>
     </header>
@@ -150,18 +150,18 @@
         </div>
     </footer>
     <script defer>
+        const body = document.querySelector("body");
+        const html = document.querySelector("html");
         const langSelect = document.querySelector(".language-selector")
         const genreButton = document.querySelector(".genre-button")
+        const genreOptions = document.querySelectorAll(".genre-dropdown .dropdown-item")
         const loginButton = document.querySelector(".login-button")
         const searchBar = document.querySelector(".kirjahaku input")
         const openingHours = document.querySelector(".opening-hours")
-        const newsletter = document.querySelector(".newsletter a")
+        const newsletter = document.querySelector(".newsletter a") //jokaiselle sivulle tarpeelliset loppuvat tähän
         const esittely = document.querySelector(".esittely")
         const uutuudet = document.querySelector(".uutuudet")
         const suosituimmat = document.querySelector(".suosituimmat")
-        const genreOptions = document.querySelectorAll(".genre-dropdown .dropdown-item")
-        const body = document.querySelector("body");
-        const html = document.querySelector("html");
 
         const genreOptionsFi = ["Fantasiakirjat", "Kaunokirjallisuus", "Tietokirjat", "Kauhukirjat", "Lastenkirjat", "Nuortenkirjat", "E-kirjat", "Äänikirjat"]
         const genreOptionsEn = ["Fantasy books", "Fiction", "Non-fiction", "Horror books", "Children's books", "Young adult books", "E-books", "Audiobooks"]
