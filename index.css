@@ -42,6 +42,11 @@ body {
     padding: 10px;
     margin-right: 10px;
 }
+.search-bar form {
+    width: 100%;
+    padding: 10px;
+    margin-right: 10px;
+}
 .filter-button {
     background: none;
     border: none;
@@ -265,3 +270,6 @@ footer {
 .carousel-btn.right {
     right: 0;
 }
+/*#suodattimet {
+    background-color: #157ffb;
+}*/
