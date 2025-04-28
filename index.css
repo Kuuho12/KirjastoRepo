@@ -209,6 +209,20 @@ footer {
     height: 24px;
 }
 
+.language-selector {
+    background-color: #157ffb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
+.blue-button {
+    background-color: #157ffb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+
 .carousel-section {
     margin: 50px auto;
     width: 90%;
