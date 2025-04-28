@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profiili</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+          min-height: 100vh;
+          background-color: #f5f5f5;
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+      }
+
+      main {
+          flex: 1 0 auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      footer {
+          flex-shrink: 0;
+          background-color: #333;
+          color: white;
+          text-align: center;
+          padding: 10px 0;
+      }
+
+      .profile-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid #707070;
+        border-radius: 5px;
+        width: 300px;
+        height: 400px;
+        gap: 25px;
+        font-family: "Open Sans";
+      }
+
+      .menu-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        color: black;
+        padding: 10px 20px;
+        border-radius: 7px;
+        border: 1px solid #707070;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s;
+        width: 225px;
+        font-size: 19px;
+        position: relative;
+      }
+
+      .menu-button span {
+        flex-grow: 1;
+        text-align: center;
+      }
+
+      .menu-button:hover {
+        background-color: #157ffb;
+        color: white;
+      }
+
+      .menu-button:hover img {
+        filter: brightness(0) saturate(100%) invert(1);
+      }
+
+      .menu-button img {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: filter 0.3s;
+      }
+
+      .svg-icon {
+        width: 100%;
+        height: 100%;
+        filter: brightness(0) saturate(100%) invert(1);
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 400px) {
+        .profile-container {
+          width: 90%;
+          height: auto;
+          padding: 20px;
+        }
+
+        .menu-button {
+          width: 100%;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="dropdown">
+          <button class="genre-button btn dropdown" data-toggle="dropdown">
+            Genret
+          </button>
+          <div class="dropdown-menu poppins">
+            <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
+            <a class="dropdown-item" href="kaunokirjallisuus.html">Kaunokirjallisuus</a>
+            <a class="dropdown-item" href="tietokirjat.html">Tietokirjat</a>
+            <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
+            <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
+            <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
+            <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
+            <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
+          </div>
+        </div>
+        <div class="logo">
+          <img src="kuvat/Tarinatupa_logo.png" alt="Tarinatuvan logo" />
+          <span class="poppins">Tarinatupa</span>
+        </div>
+        <div class="search-bar">
+          <input type="text" placeholder="Etsi kirjoja..." />
+          <button class="filter-button">🔍</button>
+        </div>
+        <div class="actions">
+          <select class="language-selector">
+            <option value="fi">Suomi</option>
+            <option value="en">English</option>
+          </select>
+          <button class="blue-button cart-button">🛒</button>
+          <button class="blue-button login-button">Kirjaudu</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="profile-container">
+        <button class="menu-button">
+          <span>Käyttäjä tiedot</span> <img src="grey-arrow.svg" alt="" />
+        </button>
+        <button class="menu-button">
+          <span>Tilaukset</span> <img src="grey-arrow.svg" alt="" />
+        </button>
+        <button class="menu-button">
+          <span>Tilaushistoria</span> <img src="grey-arrow.svg" alt="" />
+        </button>
+        <button class="menu-button">
+          <span>Lainaukset</span> <img src="grey-arrow.svg" alt="" />
+        </button>
+        <button class="menu-button">
+          <span>Toivelista</span> <img src="grey-arrow.svg" alt="" />
+        </button>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p class="contact-info">
+          📧 asiakaspalvelu@tarinatupa.fi | 📞 044 123 1234 | 📍 Kotkantie 2,
+          90250 Oulu
+        </p>
+        <p class="opening-hours">
+          Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu
+        </p>
+        <p class="newsletter">
+          <a href="#">Tilaa uutiskirjeemme</a>
+        </p>
+      </div>
+      <div class="social-icons">
+        <a href="#" target="_blank"><img src="icons/facebook.svg" alt="Facebook" /></a>
+        <a href="#" target="_blank"><img src="icons/x.svg" alt="X (Twitter)" /></a>
+        <a href="#" target="_blank"><img src="icons/youtube.svg" alt="YouTube" /></a>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
