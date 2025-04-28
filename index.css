@@ -209,14 +209,7 @@ footer {
     height: 24px;
 }
 
-.language-selector {
-    background-color: #157ffb;
-    color: white;
-    border: none;
-    border-radius: 6px;
-}
-
-.blue-button {
+.blue-button, .login-button, .cart-button, .language-selector  {
     background-color: #157ffb;
     color: white;
     border: none;
