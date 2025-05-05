@@ -63,10 +63,10 @@
                 <span class="poppins">Tarinatupa</span>
             </div>
             <div class="search-bar kirjahaku">
-                <form action="" id="searchForm">
+                <form action="" id="searchForm" class="d-flex">
                 <input type="text" placeholder="Etsi kirjoja..." id="searchInput">
+                <input type="submit" class="filter-button" value="🔍">
                 </form>
-                <button class="filter-button">🔍</button>
                 <button class="suodattimet-button" data-toggle="collapse" data-target="#suodattimet">Suodattimet</button>
             </div>
             <div class="actions">
@@ -81,21 +81,21 @@
         <div id="suodattimet" class="collapse">
             <div><p>Lorem ipsum dolor text....</p></div>
             <div><form action="">
-            <input type="radio" id="fantasia" name="genre">
+            <input type="radio" id="fantasia" name="genre" value="fantasia">
             <label for="fantasia">Fantasia</label>
-            <input type="radio" id="kaunokirjallisuus" name="genre">
+            <input type="radio" id="kaunokirjallisuus" name="genre" value="kauno">
             <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
-            <input type="radio" id="tietokirjallisuus" name="genre">
+            <input type="radio" id="tietokirjallisuus" name="genre" value="tieto">
             <label for="tietokirjallisuus">Tietokirjallisuus</label>
-            <input type="radio" id="kauhu" name="genre">
+            <input type="radio" id="kauhu" name="genre" value="kauhu">
             <label for="kauhu">Kauhu</label>
-            <input type="radio" id="lastenkirjat" name="genre">
+            <input type="radio" id="lastenkirjat" name="genre" value="lasten">
             <label for="lastenkirjat">Lastenkirjat</label>
-            <input type="radio" id="nuortenkirjat" name="genre">
+            <input type="radio" id="nuortenkirjat" name="genre" value="nuorten">
             <label for="nuortenkirjat">Nuortenkirjat</label>
-            <input type="radio" id="e-kirjat" name="genre">
+            <input type="radio" id="e-kirjat" name="genre" value="e-kirjat">
             <label for="e-kirjat">E-kirjat</label>
-            <input type="radio" id="aanikirjat" name="genre">
+            <input type="radio" id="aanikirjat" name="genre" value="aanikirjat">
             <label for="aanikirjat">Äänikirjat</label>
             </form></div>
         </div>
@@ -176,10 +176,14 @@
     </footer>
     <script defer>
         document.getElementById("searchForm").addEventListener('submit', function(e) {
-          e.preventDefault(); // Estetään lomakkeen normaali lähetys
+            e.preventDefault(); // Estetään lomakkeen normaali lähetys
+            let genre = "null"
+            if(document.querySelector('input[name="genre"]:checked')) {
+                genre = document.querySelector('input[name="genre"]:checked').value
+            } 
           const query = document.getElementById('searchInput').value.trim();
           if (query) {
-            window.location.href = 'kirjahaku.html?q=' + encodeURIComponent(query);
+            window.location.href = 'kirjahaku.html?q=' + encodeURIComponent(genre) + encodeURIComponent("_") + encodeURIComponent(query);
           }
         });
     </script>

@@ -95,25 +95,26 @@
     <script>
         // Simuloidaan kirjalistaa
         const Books = [
-            ["Sapiens - Ihmisen lyhyt historia", "SapiensIhmisenLyhytHistoria.webp", "tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html", "Yuval Noah Harari"],
-            ["Let Them Theory", "TheLetThemTheory.webp", "tietokirjat/Let_Them_Theory.html", "Mel Robbins"],
-            ["5 Types of Wealth: A Transformative Guide to Design Your Dream Life", "The5TypesOfWealth.webp", "tietokirjat/5_Types_Of_Wealth.html", "Sahil Bloom"],
-            ["Kylmä Krematorio", "KylmaKrematorio.webp", "tietokirjat/Kylma_krematorio.html", "József Debreczeni"],
-            ["Sinun tähtesi täällä", "SinunTahtesiTaalla.webp", "tietokirjat/Sinun_tahtesi_taalla.html", "Jenni Haukio"],
-            ["Sun Tzu's The Art of War", "SunTzu'sTheArtOfWar.avif", "tietokirjat/SunTzu'sTheArtOfWar.html", "Sun Tzu"],
-            ["Murha! - 100 mysteeriä nojatuolietsiville", "Murha100Mysteeria.webp", "tietokirjat/Murha_100_Mysteeria", ""]
+            ["Sapiens - Ihmisen lyhyt historia", "SapiensIhmisenLyhytHistoria.webp", "tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html", "Yuval Noah Harari", "tieto"],
+            ["Let Them Theory", "TheLetThemTheory.webp", "tietokirjat/Let_Them_Theory.html", "Mel Robbins", "tieto"],
+            ["5 Types of Wealth: A Transformative Guide to Design Your Dream Life", "The5TypesOfWealth.webp", "tietokirjat/5_Types_Of_Wealth.html", "Sahil Bloom", "tieto"],
+            ["Kylmä Krematorio", "KylmaKrematorio.webp", "tietokirjat/Kylma_krematorio.html", "József Debreczeni", "tieto"],
+            ["Sinun tähtesi täällä", "SinunTahtesiTaalla.webp", "tietokirjat/Sinun_tahtesi_taalla.html", "Jenni Haukio", "tieto"],
+            ["Sun Tzu's The Art of War", "SunTzu'sTheArtOfWar.avif", "tietokirjat/SunTzu'sTheArtOfWar.html", "Sun Tzu", "tieto"],
+            ["Murha! - 100 mysteeriä nojatuolietsiville", "Murha100Mysteeria.webp", "tietokirjat/Murha_100_Mysteeria", "G. T. Karber", "tieto"],
+            ["Taru Sormusten Herrasta", "TaruSormustenHerrasta.webp", "fantasiakirjat/Taru_Sormusten_Herrasta.html", "J. R. R. Tolkien", "fantasia"],
+            ["Winds Of Winter", "WindsOfWinter.webp", "fantasiakirjat/Winds_Of_Winter.html", "George R. R. Martin", "fantasia"]
         ]
-        const booksTest = [
-          'Tuntematon sotilas',
-          'Seitsemän veljestä',
-          'Täällä Pohjantähden alla',
-          'Muumipapan urotyöt',
-          'Päiväkirja'
-        ];
         
         // Haetaan hakusana osoitteesta
         const urlParams = new URLSearchParams(window.location.search);
-        const query = urlParams.get('q')?.toLowerCase();
+        const kokoQuery = urlParams.get('q')?.toLowerCase();
+        const match = kokoQuery.match(/^(.*?)_(.*)$/);
+        const genre = match[1]
+        const query = match[2]
+        console.log(genre)
+        console.log(query)
+        console.log(match)
         
         let resultsDiv = document.getElementById('results');
         const otsikkoDiv = document.getElementById('hakuotsikko');
@@ -124,8 +125,11 @@
         let uusinRivi;
         let uusinKirja;
         if (query) {
-            console.log(Books[0][0])
-             const filteredBooks1 = Books.filter(book => book[0].toLowerCase().includes(query));
+            let  filteredBooks0 = Books
+            if(genre !== "null") {
+                filteredBooks0 = filteredBooks0.filter(book => book[4].includes(genre))
+            }
+             const filteredBooks1 = filteredBooks0.filter(book => book[0].toLowerCase().includes(query));
             if (filteredBooks1.length > 0) {
                 otsikkoDiv.textContent = 'Hakutulokset haulle "'+query+'"'
                 const filteredBooks2 = filteredBooks1.filter(book => book[0].toLowerCase().startsWith(query))
@@ -137,7 +141,7 @@
                 KirjojenLuonti(filteredBooks3)
                 }
             } else {
-                otsikkoDiv.textContent = 'Ei löytynyt kirjoja haulla "' + query + '".';
+                otsikkoDiv.textContent = 'Ei löytynyt kirjoja haullasi';
             }
         } else {
             otsikkoDiv.textContent = 'Et antanut hakusana.';

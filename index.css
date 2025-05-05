@@ -40,18 +40,23 @@ body {
 .search-bar input {
     width: 100%;
     padding: 10px;
-    margin-right: 10px;
+    /*margin-right: 10px;*/
+}
+#searchInput {
+    width: 100%;
 }
 .search-bar form {
     width: 100%;
     padding: 10px;
-    margin-right: 10px;
+    padding-right: 0px !important;
+    /*margin-right: 10px;*/
 }
 .filter-button {
     background: none;
     border: none;
     cursor: pointer;
     font-size: 20px;
+    width: 45px !important;
 }
 .actions select, .actions button {
     margin-left: 10px;
