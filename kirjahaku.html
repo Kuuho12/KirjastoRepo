@@ -69,7 +69,8 @@
             </form></div>
         </div>
     </header>
-    <div id="results"></div>
+    <div class="d-flex justify-content-center h1 mb-5" id="hakuotsikko"></div>
+    <div class="kirjat container-fluid" id="results"></div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <br>
@@ -96,10 +97,11 @@
         const Books = [
             ["Sapiens - Ihmisen lyhyt historia", "SapiensIhmisenLyhytHistoria.webp", "tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html", "Yuval Noah Harari"],
             ["Let Them Theory", "TheLetThemTheory.webp", "tietokirjat/Let_Them_Theory.html", "Mel Robbins"],
-            ["5 Types of Wealth: A Transformative Guide to Design Your Dream Life", "kuvat/The5TypesOfWealth.webp", "tietokirjat/5_Types_Of_Wealth.html", "Sahil Bloom"],
-            ["Kylmä Krematorio", "kuvat/KylmaKrematorio.webp", "tietokirjat/Kylma_krematorio.html", "József Debreczeni"],
-            ["Sinun tähtesi täällä", "kuvat/SinunTahtesiTaalla.webp", "tietokirjat/Sinun_tahtesi_taalla.html", "Jenni Haukio"],
-            ["Sun Tzu's The Art of War", "kuvat/SunTzu'sTheArtOfWar.avif", "tietokirjat/SunTzu'sTheArtOfWar.html", "Sun Tzu"]
+            ["5 Types of Wealth: A Transformative Guide to Design Your Dream Life", "The5TypesOfWealth.webp", "tietokirjat/5_Types_Of_Wealth.html", "Sahil Bloom"],
+            ["Kylmä Krematorio", "KylmaKrematorio.webp", "tietokirjat/Kylma_krematorio.html", "József Debreczeni"],
+            ["Sinun tähtesi täällä", "SinunTahtesiTaalla.webp", "tietokirjat/Sinun_tahtesi_taalla.html", "Jenni Haukio"],
+            ["Sun Tzu's The Art of War", "SunTzu'sTheArtOfWar.avif", "tietokirjat/SunTzu'sTheArtOfWar.html", "Sun Tzu"],
+            ["Murha! - 100 mysteeriä nojatuolietsiville", "Murha100Mysteeria.webp", "tietokirjat/Murha_100_Mysteeria", ""]
         ]
         const booksTest = [
           'Tuntematon sotilas',
@@ -113,30 +115,75 @@
         const urlParams = new URLSearchParams(window.location.search);
         const query = urlParams.get('q')?.toLowerCase();
         
-        const resultsDiv = document.getElementById('results');
+        let resultsDiv = document.getElementById('results');
+        const otsikkoDiv = document.getElementById('hakuotsikko');
+        let kirjojenMaara = 0
+        let rivienMaara = 0
+        let uusinPuoliRivi;
+        let toinenPuoliRivi;
+        let uusinRivi;
+        let uusinKirja;
         if (query) {
-             const filteredBooks1 = booksTest.filter(book => book.toLowerCase().includes(query));
-  
+            console.log(Books[0][0])
+             const filteredBooks1 = Books.filter(book => book[0].toLowerCase().includes(query));
             if (filteredBooks1.length > 0) {
-                const filteredBooks2 = filteredBooks1.filter(book => book.toLowerCase().startsWith(query))
-                if (filteredBooks2.length > 0) { 
-                    filteredBooks2.forEach(book => {
-                    const div = document.createElement('div');
-                    div.textContent = book;
-                    resultsDiv.appendChild(div);
-                });
+                otsikkoDiv.textContent = 'Hakutulokset haulle "'+query+'"'
+                const filteredBooks2 = filteredBooks1.filter(book => book[0].toLowerCase().startsWith(query))
+                if (filteredBooks2.length > 0) {
+                    KirjojenLuonti(filteredBooks2)
                 }
                 const filteredBooks3 = filteredBooks1.filter(book => !filteredBooks2.includes(book))
-                filteredBooks3.forEach(book => {
-                const div = document.createElement('div');
-                div.textContent = book;
-                resultsDiv.appendChild(div);
-                });
+                if (filteredBooks3.length > 0) {
+                KirjojenLuonti(filteredBooks3)
+                }
             } else {
-                resultsDiv.textContent = 'Ei löytynyt kirjoja haulla "' + query + '".';
+                otsikkoDiv.textContent = 'Ei löytynyt kirjoja haulla "' + query + '".';
             }
         } else {
-            resultsDiv.textContent = 'Anna hakusana.';
+            otsikkoDiv.textContent = 'Et antanut hakusana.';
+        }
+        function KirjojenLuonti(FilteredBooks) {
+            FilteredBooks.forEach(book => {
+                        kirjojenMaara++;
+                        if(rivienMaara < kirjojenMaara/6) {
+                            const rivi = document.createElement('div')
+                            const puolirivi = document.createElement('div')
+                            rivi.classList.add("row", "kirjarow", "mb-5")
+                            puolirivi.classList.add("col-lg", "row", "puolirivia")
+                            resultsDiv.appendChild(rivi)
+                            rivi.appendChild(puolirivi)
+                            uusinRivi = rivi
+                            uusinPuoliRivi = puolirivi
+                            const tokapuolirivi = document.createElement('div')
+                            tokapuolirivi.classList.add("col-lg", "row", "puolirivia")
+                            toinenPuoliRivi = tokapuolirivi
+                            rivi.appendChild(tokapuolirivi)
+                            rivienMaara++;
+                        } else if(kirjojenMaara%3 == 1) {
+                            /*const puolirivi = document.createElement('div')
+                            puolirivi.classList.add("col-lg", "row", "puolirivia")
+                            uusinRivi.appendChild(puolirivi)*/
+                            console.log(kirjojenMaara)
+                            uusinPuoliRivi = toinenPuoliRivi
+                        }
+                    const div = document.createElement('div');
+                    div.classList.add("col-lg", "kirja", "border")
+                    uusinPuoliRivi.appendChild(div);
+                    const linkki = document.createElement('a')
+                    const kansi = document.createElement('img')
+                    const kirjanNimi = document.createElement('p')
+                    const kirjailijanNimi = document.createElement('p')
+                    linkki.setAttribute('href', book[2])
+                    div.appendChild(linkki)
+                    kansi.setAttribute("src", 'kuvat/'+book[1])
+                    kansi.setAttribute("class", "mx-auto d-flex")
+                    linkki.appendChild(kansi)
+                    kirjanNimi.textContent = book[0]
+                    kirjanNimi.setAttribute("class", "poppins-bold")
+                    div.appendChild(kirjanNimi)
+                    kirjailijanNimi.textContent = book[3]
+                    div.appendChild(kirjailijanNimi)
+                })
         }
     </script>
     <script defer>
