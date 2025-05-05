@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Poppins ja Open Sans Fontit-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--<script defer src="javascript/translation.js"></script>-->
+    <script defer src="javascript/suodattimet.js"></script>
+    <title>Tarinatupa</title>
+</head>
+<body lang="fi">
+    <header>
+        <nav class="navbar">
+            <div class="dropdown">
+            <button class="genre-button btn dropdown" data-toggle="dropdown">Genret</button>
+            <div class="dropdown-menu poppins genre-dropdown">
+                <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
+                <a class="dropdown-item" href="kaunokirjallisuus.html">Kaunokirjallisuus</a>
+                <a class="dropdown-item" href="tietokirjat.html">Tietokirjat</a>
+                <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
+                <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
+                <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
+                <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
+                <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
+            </div>
+            </div>
+            <div class="logo">
+                <a href="index.html"><img src="kuvat/Tarinatupa_logo.png" alt="Tarinatuvan logo"></a>
+                <span class="poppins">Tarinatupa</span>
+            </div>
+            <div class="search-bar kirjahaku">
+                <input type="text" placeholder="Etsi kirjoja...">
+                <button class="filter-button">🔍</button>
+                <button class="suodattimet-button" data-toggle="collapse" data-target="#suodattimet">Suodattimet</button>
+            </div>
+            <div class="actions">
+                <select class="language-selector">
+                    <option class="fi" value="fi">Suomi</option>
+                    <option class="en" value="en">English</option>
+                </select>
+                <a href="ostoskori.html"><button class="blue-button cart-button">🛒</button></a>
+                <a href="kirjaudu.html"><button class="blue-button login-button">Kirjaudu</button></a>
+            </div>
+        </nav>
+        <div id="suodattimet" class="collapse">
+            <div><p>Lorem ipsum dolor text....</p></div>
+            <div><form action="">
+            <input type="radio" id="fantasia" name="genre">
+            <label for="fantasia">Fantasia</label>
+            <input type="radio" id="kaunokirjallisuus" name="genre">
+            <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
+            <input type="radio" id="tietokirjallisuus" name="genre">
+            <label for="tietokirjallisuus">Tietokirjallisuus</label>
+            <input type="radio" id="kauhu" name="genre">
+            <label for="kauhu">Kauhu</label>
+            <input type="radio" id="lastenkirjat" name="genre">
+            <label for="lastenkirjat">Lastenkirjat</label>
+            <input type="radio" id="nuortenkirjat" name="genre">
+            <label for="nuortenkirjat">Nuortenkirjat</label>
+            <input type="radio" id="e-kirjat" name="genre">
+            <label for="e-kirjat">E-kirjat</label>
+            <input type="radio" id="aanikirjat" name="genre">
+            <label for="aanikirjat">Äänikirjat</label>
+            </form></div>
+        </div>
+    </header>
+    <div class="d-flex justify-content-center h1 mb-5" id="hakuotsikko"></div>
+    <div class="kirjat container-fluid" id="results"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <br>
+    <footer>
+        <div class="footer-content">
+            <p class="contact-info">
+                📧 asiakaspalvelu@tarinatupa.fi | 📞 044 123 1234 | 📍 Kotkantie 2, 90250 Oulu
+            </p>
+            <p class="opening-hours">
+                Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu
+            </p>
+            <p class="newsletter">
+                <a href="#">Tilaa uutiskirjeemme</a>
+            </p>
+        </div>
+        <div class="social-icons">
+            <a href="#" target="_blank"><img src="icons/facebook.svg" alt="Facebook"></a>
+            <a href="#" target="_blank"><img src="icons/x.svg" alt="X (Twitter)"></a>
+            <a href="#" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
+        </div>
+    </footer>
+    <script>
+        // Simuloidaan kirjalistaa
+        const Books = [
+            ["Sapiens - Ihmisen lyhyt historia", "SapiensIhmisenLyhytHistoria.webp", "tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html", "Yuval Noah Harari"],
+            ["Let Them Theory", "TheLetThemTheory.webp", "tietokirjat/Let_Them_Theory.html", "Mel Robbins"],
+            ["5 Types of Wealth: A Transformative Guide to Design Your Dream Life", "The5TypesOfWealth.webp", "tietokirjat/5_Types_Of_Wealth.html", "Sahil Bloom"],
+            ["Kylmä Krematorio", "KylmaKrematorio.webp", "tietokirjat/Kylma_krematorio.html", "József Debreczeni"],
+            ["Sinun tähtesi täällä", "SinunTahtesiTaalla.webp", "tietokirjat/Sinun_tahtesi_taalla.html", "Jenni Haukio"],
+            ["Sun Tzu's The Art of War", "SunTzu'sTheArtOfWar.avif", "tietokirjat/SunTzu'sTheArtOfWar.html", "Sun Tzu"],
+            ["Murha! - 100 mysteeriä nojatuolietsiville", "Murha100Mysteeria.webp", "tietokirjat/Murha_100_Mysteeria", ""]
+        ]
+        const booksTest = [
+          'Tuntematon sotilas',
+          'Seitsemän veljestä',
+          'Täällä Pohjantähden alla',
+          'Muumipapan urotyöt',
+          'Päiväkirja'
+        ];
+        
+        // Haetaan hakusana osoitteesta
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get('q')?.toLowerCase();
+        
+        let resultsDiv = document.getElementById('results');
+        const otsikkoDiv = document.getElementById('hakuotsikko');
+        let kirjojenMaara = 0
+        let rivienMaara = 0
+        let uusinPuoliRivi;
+        let toinenPuoliRivi;
+        let uusinRivi;
+        let uusinKirja;
+        if (query) {
+            console.log(Books[0][0])
+             const filteredBooks1 = Books.filter(book => book[0].toLowerCase().includes(query));
+            if (filteredBooks1.length > 0) {
+                otsikkoDiv.textContent = 'Hakutulokset haulle "'+query+'"'
+                const filteredBooks2 = filteredBooks1.filter(book => book[0].toLowerCase().startsWith(query))
+                if (filteredBooks2.length > 0) {
+                    KirjojenLuonti(filteredBooks2)
+                }
+                const filteredBooks3 = filteredBooks1.filter(book => !filteredBooks2.includes(book))
+                if (filteredBooks3.length > 0) {
+                KirjojenLuonti(filteredBooks3)
+                }
+            } else {
+                otsikkoDiv.textContent = 'Ei löytynyt kirjoja haulla "' + query + '".';
+            }
+        } else {
+            otsikkoDiv.textContent = 'Et antanut hakusana.';
+        }
+        function KirjojenLuonti(FilteredBooks) {
+            FilteredBooks.forEach(book => {
+                        kirjojenMaara++;
+                        if(rivienMaara < kirjojenMaara/6) {
+                            const rivi = document.createElement('div')
+                            const puolirivi = document.createElement('div')
+                            rivi.classList.add("row", "kirjarow", "mb-5")
+                            puolirivi.classList.add("col-lg", "row", "puolirivia")
+                            resultsDiv.appendChild(rivi)
+                            rivi.appendChild(puolirivi)
+                            uusinRivi = rivi
+                            uusinPuoliRivi = puolirivi
+                            const tokapuolirivi = document.createElement('div')
+                            tokapuolirivi.classList.add("col-lg", "row", "puolirivia")
+                            toinenPuoliRivi = tokapuolirivi
+                            rivi.appendChild(tokapuolirivi)
+                            rivienMaara++;
+                        } else if(kirjojenMaara%3 == 1) {
+                            /*const puolirivi = document.createElement('div')
+                            puolirivi.classList.add("col-lg", "row", "puolirivia")
+                            uusinRivi.appendChild(puolirivi)*/
+                            console.log(kirjojenMaara)
+                            uusinPuoliRivi = toinenPuoliRivi
+                        }
+                    const div = document.createElement('div');
+                    div.classList.add("col-lg", "kirja", "border")
+                    uusinPuoliRivi.appendChild(div);
+                    const linkki = document.createElement('a')
+                    const kansi = document.createElement('img')
+                    const kirjanNimi = document.createElement('p')
+                    const kirjailijanNimi = document.createElement('p')
+                    linkki.setAttribute('href', book[2])
+                    div.appendChild(linkki)
+                    kansi.setAttribute("src", 'kuvat/'+book[1])
+                    kansi.setAttribute("class", "mx-auto d-flex")
+                    linkki.appendChild(kansi)
+                    kirjanNimi.textContent = book[0]
+                    kirjanNimi.setAttribute("class", "poppins-bold")
+                    div.appendChild(kirjanNimi)
+                    kirjailijanNimi.textContent = book[3]
+                    div.appendChild(kirjailijanNimi)
+                })
+        }
+    </script>
+    <script defer>
+        const body = document.querySelector("body");
+        const html = document.querySelector("html");
+        const langSelect = document.querySelector(".language-selector")
+        const genreButton = document.querySelector(".genre-button")
+        const genreOptions = document.querySelectorAll(".genre-dropdown .dropdown-item")
+        const loginButton = document.querySelector(".login-button")
+        const searchBar = document.querySelector(".kirjahaku input")
+        const openingHours = document.querySelector(".opening-hours")
+        const newsletter = document.querySelector(".newsletter a") //jokaiselle sivulle tarpeelliset loppuvat tähän
+
+        const genreOptionsFi = ["Fantasiakirjat", "Kaunokirjallisuus", "Tietokirjat", "Kauhukirjat", "Lastenkirjat", "Nuortenkirjat", "E-kirjat", "Äänikirjat"]
+        const genreOptionsEn = ["Fantasy books", "Fiction", "Non-fiction", "Horror books", "Children's books", "Young adult books", "E-books", "Audiobooks"]
+
+
+        langSelect.addEventListener("change", () => {
+            if(html.getAttribute("lang")=="fi") {
+                body.setAttribute("lang", "en");
+                html.setAttribute("lang", "en");
+                genreButton.textContent="Genres"
+                loginButton.textContent="Login"
+                searchBar.setAttribute("placeholder", "Search books...")
+                openingHours.textContent="Opening hours: Mon-Fri 9-18, Sat 10-16, Sun closed"
+                newsletter.textContent="Subscribe to our newsletter"
+                console.log("english");
+            } else {
+                body.setAttribute("lang", "fi");
+                html.setAttribute("lang", "fi");
+                genreButton.textContent="Genret"
+                loginButton.textContent="Kirjaudu"
+                searchBar.setAttribute("placeholder", "Etsi kirjoja...")
+                openingHours.textContent="Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu"
+                newsletter.textContent="Tilaa uutiskirjeemme"
+                genreOptions.forEach((link, index) => link.textContent = genreOptionsFi[index]);
+                console.log("finnish");
+            }
+        });
+    </script>
+</body>
+</html>

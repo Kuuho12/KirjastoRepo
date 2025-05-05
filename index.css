@@ -42,6 +42,11 @@ body {
     padding: 10px;
     margin-right: 10px;
 }
+.search-bar form {
+    width: 100%;
+    padding: 10px;
+    margin-right: 10px;
+}
 .filter-button {
     background: none;
     border: none;
@@ -67,19 +72,20 @@ body {
 .kirja > p {
     /*padding-left: 15px;
     padding-right: 15px;*/
-    display: flex;
+    /*display: flex;*/
     align-self: center;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 5%;
     padding-right: 5%;
+    /*text-align: center;*/
 }
 .kirja>a>img {
     max-height: 260px;
-    max-width: 100%;
-    margin-right: auto;
-    margin-left: auto;
+    max-width: 90%;
+    /*margin-right: auto;
+    margin-left: auto;*/
     margin-bottom: 14px;
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -274,3 +280,6 @@ footer {
 .carousel-btn.right {
     right: 0;
 }
+/*#suodattimet {
+    background-color: #157ffb;
+}*/

@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!--<script defer src="javascript/translation.js"></script>-->
+    <script defer src="javascript/suodattimet.js"></script>
     <title>Tarinatupa</title>
 </head>
 <body lang="fi">
@@ -70,8 +71,11 @@
                 <span class="poppins">Tarinatupa</span>
             </div>
             <div class="search-bar kirjahaku">
-                <input type="text" placeholder="Etsi kirjoja...">
+                <form action="" id="searchForm">
+                <input type="text" placeholder="Etsi kirjoja..." id="searchInput">
+                </form>
                 <button class="filter-button">🔍</button>
+                <button class="suodattimet-button" data-toggle="collapse" data-target="#suodattimet">Suodattimet</button>
             </div>
             <div class="actions">
                 <select class="language-selector">
@@ -82,6 +86,27 @@
                 <a href="kirjaudu.html"><button class="blue-button login-button">Kirjaudu</button></a>
             </div>
         </nav>
+        <div id="suodattimet" class="collapse">
+            <div><p>Lorem ipsum dolor text....</p></div>
+            <div><form action="">
+            <input type="radio" id="fantasia" name="genre">
+            <label for="fantasia">Fantasia</label>
+            <input type="radio" id="kaunokirjallisuus" name="genre">
+            <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
+            <input type="radio" id="tietokirjallisuus" name="genre">
+            <label for="tietokirjallisuus">Tietokirjallisuus</label>
+            <input type="radio" id="kauhu" name="genre">
+            <label for="kauhu">Kauhu</label>
+            <input type="radio" id="lastenkirjat" name="genre">
+            <label for="lastenkirjat">Lastenkirjat</label>
+            <input type="radio" id="nuortenkirjat" name="genre">
+            <label for="nuortenkirjat">Nuortenkirjat</label>
+            <input type="radio" id="e-kirjat" name="genre">
+            <label for="e-kirjat">E-kirjat</label>
+            <input type="radio" id="aanikirjat" name="genre">
+            <label for="aanikirjat">Äänikirjat</label>
+            </form></div>
+        </div>
     </header>
     <h1 class="h1">Tarinatupa</h1>
     <p class="esittely">Tarinatupa on kirjakauppa ja lainaamo, jossa tarinat heräävät eloon. Meiltä löydät laajan valikoiman kirjoja eri 
@@ -157,6 +182,15 @@
             <a href="#" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
         </div>
     </footer>
+    <script defer>
+        document.getElementById("searchForm").addEventListener('submit', function(e) {
+          e.preventDefault(); // Estetään lomakkeen normaali lähetys
+          const query = document.getElementById('searchInput').value.trim();
+          if (query) {
+            window.location.href = 'kirjahaku.html?q=' + encodeURIComponent(query);
+          }
+        });
+    </script>
     <script defer>
         const body = document.querySelector("body");
         const html = document.querySelector("html");
