@@ -16,25 +16,33 @@
 <body lang="fi">
     <script>
         const visibleCount = 4;
-    
-        function nextSlide(id) {
+
+        function nextSlide(id, event) {
+            event.preventDefault(); // Estä linkkien aiheuttama sivun scrollaus
             const track = document.getElementById(id);
+            if (!track) return;
+            
             const totalItems = track.children.length;
             const currentIndex = parseInt(track.getAttribute('data-index')) || 0;
-            const nextIndex = (currentIndex + 1) % Math.ceil(totalItems / visibleCount);
+            const totalSlides = Math.ceil(totalItems / visibleCount);
+            const nextIndex = (currentIndex + 1) % totalSlides;
             track.style.transform = `translateX(-${nextIndex * 100}%)`;
             track.setAttribute('data-index', nextIndex);
         }
-    
-        function prevSlide(id) {
+
+        function prevSlide(id, event) {
+            event.preventDefault(); // Estä linkkien aiheuttama sivun scrollaus
             const track = document.getElementById(id);
+            if (!track) return;
+            
             const totalItems = track.children.length;
             const currentIndex = parseInt(track.getAttribute('data-index')) || 0;
-            const nextIndex = (currentIndex - 1 + Math.ceil(totalItems / visibleCount)) % Math.ceil(totalItems / visibleCount);
+            const totalSlides = Math.ceil(totalItems / visibleCount);
+            const nextIndex = (currentIndex - 1 + totalSlides) % totalSlides;
             track.style.transform = `translateX(-${nextIndex * 100}%)`;
             track.setAttribute('data-index', nextIndex);
         }
-    
+
         // Initial setup
         window.addEventListener('DOMContentLoaded', () => {
             const tracks = document.querySelectorAll('.carousel-track');
@@ -109,46 +117,46 @@
     <section class="carousel-section">
         <h2 class="h2 uutuudet">Uutuudet</h2>
         <div class="custom-carousel">
-            <button class="carousel-btn left" onclick="prevSlide('uutuudet')">&#10094;</button>
+            <button class="carousel-btn left" onclick="prevSlide('uutuudet', event)">&#10094;</button>
             <div class="carousel-track" id="uutuudet">
                 <!-- 12 kirjaa -->
-                <img src="kuvat/RatkommeMurhia.PNG" alt="Kirja 1">
-                <img src="kuvat/OnyxStorm.PNG" alt="Kirja 2">
-                <img src="kuvat/HeikkiSilvennoinenNousutJaLaskut.PNG" alt="Kirja 3">
-                <img src="kuvat/KylmaKrematorio.webp" alt="Kirja 4">
-                <img src="kuvat/ToivoaVersovatPäivät.PNG" alt="Kirja 5">
-                <img src="kuvat/PunainenVerkko.PNG" alt="Kirja 6">
-                <img src="kuvat/TheJFKConspiracy.PNG" alt="Kirja 7">
-                <img src="kuvat/The5TypesOfWealth.webp" alt="Kirja 8">
-                <img src="kuvat/TheWindsOfWinter.PNG" alt="Kirja 9">
-                <img src="kuvat/TheLetThemTheory.webp" alt="Kirja 10">
-                <img src="kuvat/SapiensIhmisenLyhytHistoria.webp" alt="Kirja 11">
-                <img src="kuvat/SadanVuodenYksinäisyys.PNG" alt="Kirja 12">
+                <a href="uutuudet/Ratkomme_murhia.html"><img src="kuvat/RatkommeMurhia.PNG" alt="Kirja 1"></a>
+                <a href="uutuudet/Onyx_storm.html"><img src="kuvat/OnyxStorm.PNG" alt="Kirja 2"></a>
+                <a href="uutuudet/Heikki_Silvennoinen_Nousut_ja_laskut.html"><img src="kuvat/HeikkiSilvennoinenNousutJaLaskut.PNG" alt="Kirja 3"></a>
+                <a href="tietokirjat/Kylma_krematorio.html"><img src="kuvat/KylmaKrematorio.webp" alt="Kirja 4"></a>
+                <a href="uutuudet/Toivoa_versovat_paivat.html"><img src="kuvat/ToivoaVersovatPäivät.PNG" alt="Kirja 5"></a>
+                <a href="uutuudet/Punainen_verkko.html"><img src="kuvat/PunainenVerkko.PNG" alt="Kirja 6"></a>
+                <a href="uutuudet/The_JFK_conspiracy.html"><img src="kuvat/TheJFKConspiracy.PNG" alt="Kirja 7"></a>
+                <a href="tietokirjat/5_Types_Of_Wealth.html"><img src="kuvat/The5TypesOfWealth.webp" alt="Kirja 8"></a>
+                <a href="uutuudet/The_winds_of_winter.html"><img src="kuvat/TheWindsOfWinter.PNG" alt="Kirja 9"></a>
+                <a href="tietokirjat/Let_Them_Theory.html"><img src="kuvat/TheLetThemTheory.webp" alt="Kirja 10"></a>
+                <a href="tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html"><img src="kuvat/SapiensIhmisenLyhytHistoria.webp" alt="Kirja 11"></a>
+                <a href="uutuudet/Sadan_vuoden_yksinaisyys.html"><img src="kuvat/SadanVuodenYksinäisyys.PNG" alt="Kirja 12"></a>
             </div>
-            <button class="carousel-btn right" onclick="nextSlide('uutuudet')">&#10095;</button>
+            <button class="carousel-btn right" onclick="nextSlide('uutuudet', event)">&#10095;</button>
         </div>
     </section>
 
     <section class="carousel-section">
         <h2 class="h2 suosituimmat">Suosituimmat</h2>
         <div class="custom-carousel">
-            <button class="carousel-btn left" onclick="prevSlide('suosituimmat')">&#10094;</button>
+            <button class="carousel-btn left" onclick="prevSlide('suosituimmat', event)">&#10094;</button>
             <div class="carousel-track" id="suosituimmat">
                 <!-- 12 kirjaa -->
-                <img src="kuvat/PimeydenSydän.PNG" alt="Kirja 1">
-                <img src="kuvat/SuonVilliLaulu.PNG" alt="Kirja 2">
-                <img src="kuvat/SotaJaRauha.PNG" alt="Kirja 3">
-                <img src="kuvat/AndThenThereWereNone.PNG" alt="Kirja 4">
-                <img src="kuvat/SinuheEgyptiläinen.PNG" alt="Kirja 5">
-                <img src="kuvat/TuntematonSotilas.PNG" alt="Kirja 6">
-                <img src="kuvat/HarryPotterJaViisastenKivi.PNG" alt="Kirja 7">
-                <img src="kuvat/TäälläPohjantähdenAlla.PNG" alt="Kirja 8">
-                <img src="kuvat/SunTzu'sTheArtOfWar.avif" alt="Kirja 9">
-                <img src="kuvat/TheLordOfTheRings.PNG" alt="Kirja 10">
-                <img src="kuvat/SinunTahtesiTaalla.webp" alt="Kirja 11">
-                <img src="kuvat/Hohto.PNG" alt="Kirja 12">
+                <a href="suosituimmat/Pimeyden_sydan.html"><img src="kuvat/PimeydenSydän.PNG" alt="Kirja 1"></a>
+                <a href="suosituimmat/Suon_villi_laulu.html"><img src="kuvat/SuonVilliLaulu.PNG" alt="Kirja 2"></a>
+                <a href="suosituimmat/Sota_ja_rauha.html"><img src="kuvat/SotaJaRauha.PNG" alt="Kirja 3"></a>
+                <a href="suosituimmat/And_then_there_were_none.html"><img src="kuvat/AndThenThereWereNone.PNG" alt="Kirja 4"></a>
+                <a href="suosituimmat/Sinuhe_egyptilainen.html"><img src="kuvat/SinuheEgyptiläinen.PNG" alt="Kirja 5"></a>
+                <a href="suosituimmat/Tuntematon_sotilas.html"><img src="kuvat/TuntematonSotilas.PNG" alt="Kirja 6"></a>
+                <a href="suosituimmat/Harry_Potter_ja_viisasten_kivi.html"><img src="kuvat/HarryPotterJaViisastenKivi.PNG" alt="Kirja 7"></a>
+                <a href="suosituimmat/Taalla_pohjantahden_alla.html"><img src="kuvat/TäälläPohjantähdenAlla.PNG" alt="Kirja 8"></a>
+                <a href="suosituimmat/SunTzu's_the_art_of_war.html"><img src="kuvat/SunTzu'sTheArtOfWar.avif" alt="Kirja 9"></a>
+                <a href="suosituimmat/The_lord_of_the_rings.html"><img src="kuvat/TheLordOfTheRings.PNG" alt="Kirja 10"></a>
+                <a href="suosituimmat/Sinun_tahtesi_taalla.html"><img src="kuvat/SinunTahtesiTaalla.webp" alt="Kirja 11"></a>
+                <a href="suosituimmat/Hohto.html"><img src="kuvat/Hohto.PNG" alt="Kirja 12"></a>
             </div>
-            <button class="carousel-btn right" onclick="nextSlide('suosituimmat')">&#10095;</button>
+            <button class="carousel-btn right" onclick="nextSlide('suosituimmat', event)">&#10095;</button>
         </div>
     </section>
 
