@@ -285,3 +285,24 @@ footer {
 .carousel-btn.right {
     right: 0;
 }
+.suodatinrivi {
+    display: flex;
+    justify-content: center;
+}
+#genreform input {
+    margin: 0px 6px !important;
+}
+#genreform label {
+    margin: 0px !important;
+}
+#suodattimet {
+    flex-direction: column;
+    justify-items: center;
+}
+#slidercontainer {
+    width: 12%;
+    margin-right: 15px;
+}
+#slider {
+    width: 100%;
+}

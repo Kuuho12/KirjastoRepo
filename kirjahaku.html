@@ -95,28 +95,31 @@
     <script>
         // Simuloidaan kirjalistaa
         const Books = [
-            ["Sapiens - Ihmisen lyhyt historia", "SapiensIhmisenLyhytHistoria.webp", "tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html", "Yuval Noah Harari", ["tieto"]],
-            ["Let Them Theory", "TheLetThemTheory.webp", "tietokirjat/Let_Them_Theory.html", "Mel Robbins", ["tieto"]],
-            ["5 Types of Wealth: A Transformative Guide to Design Your Dream Life", "The5TypesOfWealth.webp", "tietokirjat/5_Types_Of_Wealth.html", "Sahil Bloom", ["tieto", "english"]],
-            ["Kylmä Krematorio", "KylmaKrematorio.webp", "tietokirjat/Kylma_krematorio.html", "József Debreczeni", ["tieto"]],
-            ["Sinun tähtesi täällä", "SinunTahtesiTaalla.webp", "tietokirjat/Sinun_tahtesi_taalla.html", "Jenni Haukio", ["tieto"]],
-            ["Sun Tzu's The Art of War", "SunTzu'sTheArtOfWar.avif", "tietokirjat/SunTzu'sTheArtOfWar.html", "Sun Tzu", ["tieto", "english"]],
-            ["Murha! - 100 mysteeriä nojatuolietsiville", "Murha100Mysteeria.webp", "tietokirjat/Murha_100_Mysteeria", "G. T. Karber", ["fantasia"]],
-            ["Taru Sormusten Herrasta", "TaruSormustenHerrasta.webp", "fantasiakirjat/Taru_Sormusten_Herrasta.html", "J. R. R. Tolkien", ["fantasia"]],
-            ["Winds Of Winter", "WindsOfWinter.webp", "fantasiakirjat/Winds_Of_Winter.html", "George R. R. Martin", ["fantasia", "english"]],
-            ["Ratkomme murhia", "RatkommeMurhia.PNG", "uutuudet/Ratkomme_murhia.html", "Richard Osman", ["nuorten"]],
-            ["Onyx Storm", "OnyxStorm.PNG", "uutuudet/Onyx_storm.html", "Rebecca Yarros", ["fantasia", "english"]],
-            ["Heikki Silvennoinen Nousut ja laskut", "HeikkiSilvennoinenNousutJaLaskut.PNG", "uutuudet/Heikki_Silvennoinen_Nousut_ja_laskut.html", "Tommi Saarela", ["tieto"]],
-            ["Toivoa versovat paivat", "ToivoaVersovatPäivät.PNG", "uutuudet/Toivoa_versovat_paivat.html", "Melissa Da Costa", ["kauno"]]
+            ["Sapiens - Ihmisen lyhyt historia", "SapiensIhmisenLyhytHistoria.webp", "tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html", "Yuval Noah Harari", ["tieto"], 13.95],
+            ["Let Them Theory", "TheLetThemTheory.webp", "tietokirjat/Let_Them_Theory.html", "Mel Robbins", ["tieto"], 34.95],
+            ["5 Types of Wealth: A Transformative Guide to Design Your Dream Life", "The5TypesOfWealth.webp", "tietokirjat/5_Types_Of_Wealth.html", "Sahil Bloom", ["tieto", "english"], 29.95],
+            ["Kylmä Krematorio", "KylmaKrematorio.webp", "tietokirjat/Kylma_krematorio.html", "József Debreczeni", ["tieto"], 31.95],
+            ["Sinun tähtesi täällä", "SinunTahtesiTaalla.webp", "tietokirjat/Sinun_tahtesi_taalla.html", "Jenni Haukio", ["tieto"], 30.95],
+            ["Sun Tzu's The Art of War", "SunTzu'sTheArtOfWar.avif", "tietokirjat/SunTzu'sTheArtOfWar.html", "Sun Tzu", ["tieto", "english"], 30 /*ei oikea*/],
+            ["Murha! - 100 mysteeriä nojatuolietsiville", "Murha100Mysteeria.webp", "tietokirjat/Murha_100_Mysteeria", "G. T. Karber", ["fantasia"], 30 /*ei oikea*/],
+            ["Taru Sormusten Herrasta", "TaruSormustenHerrasta.webp", "fantasiakirjat/Taru_Sormusten_Herrasta.html", "J. R. R. Tolkien", ["fantasia"], 30 /*ei oikea*/],
+            ["Winds Of Winter", "WindsOfWinter.webp", "fantasiakirjat/Winds_Of_Winter.html", "George R. R. Martin", ["fantasia", "english"], 30.95],
+            ["Ratkomme murhia", "RatkommeMurhia.PNG", "uutuudet/Ratkomme_murhia.html", "Richard Osman", ["nuorten"], 31.95],
+            ["Onyx Storm", "OnyxStorm.PNG", "uutuudet/Onyx_storm.html", "Rebecca Yarros", ["fantasia", "english"], 19.95],
+            ["Heikki Silvennoinen Nousut ja laskut", "HeikkiSilvennoinenNousutJaLaskut.PNG", "uutuudet/Heikki_Silvennoinen_Nousut_ja_laskut.html", "Tommi Saarela", ["tieto"], 30.95],
+            ["Toivoa versovat paivat", "ToivoaVersovatPäivät.PNG", "uutuudet/Toivoa_versovat_paivat.html", "Melissa Da Costa", ["kauno"], 31.95]
         ]
-        
+        console.log(Books[0][5])
         // Haetaan hakusana osoitteesta
         const urlParams = new URLSearchParams(window.location.search);
         const kokoQuery = urlParams.get('q')?.toLowerCase();
-        const match = kokoQuery.match(/^(.*?)_(.*)$/);
+        const match = kokoQuery.match(/^(.*?)_(.*?)–(.*?)_(.*)$/);
         const genre = match[1]
-        const query = match[2]
+        const min = match[2]
+        const max = match[3]
+        const query = match[4]
         console.log(genre)
+        console.log(min, max)
         console.log(query)
         console.log(match)
         
@@ -132,9 +135,13 @@
             let  filteredBooks0 = Books
             if(genre !== "null") {
                 console.log(filteredBooks0)
-                filteredBooks0 = filteredBooks0.filter(book => book[4].includes(genre))
-                
+                filteredBooks0 = filteredBooks0.filter(book => book[4].includes(genre)) 
             }
+            filteredBooks0 = filteredBooks0.filter(book => {
+                if(book[5]>min && book[5]<max) {
+                    return true;
+                } else return false
+            })
              const filteredBooks1 = filteredBooks0.filter(book => book[0].toLowerCase().includes(query));
             if (filteredBooks1.length > 0) {
                 otsikkoDiv.textContent = 'Hakutulokset haulle "'+query+'"'

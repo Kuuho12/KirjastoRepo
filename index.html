@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,16 @@
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Poppins ja Open Sans Fontit-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <!--<script defer src="javascript/translation.js"></script>-->
     <script defer src="javascript/suodattimet.js"></script>
     <title>Tarinatupa</title>
 </head>
+
 <body lang="fi">
     <script>
         const visibleCount = 4;
@@ -21,7 +26,7 @@
             event.preventDefault(); // Estä linkkien aiheuttama sivun scrollaus
             const track = document.getElementById(id);
             if (!track) return;
-            
+
             const totalItems = track.children.length;
             const currentIndex = parseInt(track.getAttribute('data-index')) || 0;
             const totalSlides = Math.ceil(totalItems / visibleCount);
@@ -34,7 +39,7 @@
             event.preventDefault(); // Estä linkkien aiheuttama sivun scrollaus
             const track = document.getElementById(id);
             if (!track) return;
-            
+
             const totalItems = track.children.length;
             const currentIndex = parseInt(track.getAttribute('data-index')) || 0;
             const totalSlides = Math.ceil(totalItems / visibleCount);
@@ -54,18 +59,18 @@
     <header>
         <nav class="navbar">
             <div class="dropdown">
-            <button class="genre-button btn dropdown" data-toggle="dropdown">Genret</button>
-            <div class="dropdown-menu poppins genre-dropdown">
-                <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
-                <a class="dropdown-item" href="kaunokirjallisuus.html">Kaunokirjallisuus</a>
-                <a class="dropdown-item" href="tietokirjat.html">Tietokirjat</a>
-                <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
-                <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
-                <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
-                <a class="dropdown-item" href="englanninkieliset.html">Englanninkieliset kirjat</a>
-                <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
-                <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
-            </div>
+                <button class="genre-button btn dropdown" data-toggle="dropdown">Genret</button>
+                <div class="dropdown-menu poppins genre-dropdown">
+                    <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
+                    <a class="dropdown-item" href="kaunokirjallisuus.html">Kaunokirjallisuus</a>
+                    <a class="dropdown-item" href="tietokirjat.html">Tietokirjat</a>
+                    <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
+                    <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
+                    <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
+                    <a class="dropdown-item" href="englanninkieliset.html">Englanninkieliset kirjat</a>
+                    <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
+                    <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
+                </div>
             </div>
             <div class="logo">
                 <a href="index.html"><img src="kuvat/Tarinatupa_logo.png" alt="Tarinatuvan logo"></a>
@@ -73,10 +78,11 @@
             </div>
             <div class="search-bar kirjahaku">
                 <form action="" id="searchForm" class="d-flex">
-                <input type="text" placeholder="Etsi kirjoja..." id="searchInput">
-                <input type="submit" class="filter-button" value="🔍">
+                    <input type="text" placeholder="Etsi kirjoja..." id="searchInput">
+                    <input type="submit" class="filter-button" value="🔍">
                 </form>
-                <button class="suodattimet-button" data-toggle="collapse" data-target="#suodattimet">Suodattimet</button>
+                <button class="suodattimet-button" data-toggle="collapse"
+                    data-target="#suodattimet">Suodattimet</button>
             </div>
             <div class="actions">
                 <select class="language-selector">
@@ -88,32 +94,43 @@
             </div>
         </nav>
         <div id="suodattimet" class="collapse">
-            <div><p>Lorem ipsum dolor text....</p></div>
-            <form action="">
-            <input type="radio" id="fantasia" name="genre" value="fantasia">
-            <label for="fantasia">Fantasia</label>
-            <input type="radio" id="kaunokirjallisuus" name="genre" value="kauno">
-            <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
-            <input type="radio" id="tietokirjallisuus" name="genre" value="tieto">
-            <label for="tietokirjallisuus">Tietokirjallisuus</label>
-            <input type="radio" id="kauhu" name="genre" value="kauhu">
-            <label for="kauhu">Kauhu</label>
-            <input type="radio" id="lastenkirjat" name="genre" value="lasten">
-            <label for="lastenkirjat">Lastenkirjat</label>
-            <input type="radio" id="nuortenkirjat" name="genre" value="nuorten">
-            <label for="nuortenkirjat">Nuortenkirjat</label>
-            <input type="radio" id="englanninkieliset" name="genre" value="english">
-            <label for="englanninkieliset">Englanninkielinen</label>
-            <input type="radio" id="e-kirjat" name="genre" value="e-kirjat">
-            <label for="e-kirjat">E-kirjat</label>
-            <input type="radio" id="aanikirjat" name="genre" value="aanikirjat">
-            <label for="aanikirjat">Äänikirjat</label>
-            </form>
+            <div class="suodatinrivi">
+            </div>
+            <div class="suodatinrivi">
+                <div id="slidercontainer">
+                    <div id="minJaMax">
+                        <p id="priceRange"></p>
+                    </div>
+                    <div id="slider"></div>
+                </div>
+                <form action="" id="genreform">
+                    <input type="radio" id="fantasia" name="genre" value="fantasia">
+                    <label for="fantasia">Fantasia</label>
+                    <input type="radio" id="kaunokirjallisuus" name="genre" value="kauno">
+                    <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
+                    <input type="radio" id="tietokirjallisuus" name="genre" value="tieto">
+                    <label for="tietokirjallisuus">Tietokirjallisuus</label>
+                    <input type="radio" id="kauhu" name="genre" value="kauhu">
+                    <label for="kauhu">Kauhu</label>
+                    <input type="radio" id="lastenkirjat" name="genre" value="lasten">
+                    <label for="lastenkirjat">Lastenkirjat</label>
+                    <input type="radio" id="nuortenkirjat" name="genre" value="nuorten">
+                    <label for="nuortenkirjat">Nuortenkirjat</label>
+                    <input type="radio" id="englanninkieliset" name="genre" value="english">
+                    <label for="englanninkieliset">Englanninkielinen</label>
+                    <input type="radio" id="e-kirjat" name="genre" value="e-kirjat">
+                    <label for="e-kirjat">E-kirjat</label>
+                    <input type="radio" id="aanikirjat" name="genre" value="aanikirjat">
+                    <label for="aanikirjat">Äänikirjat</label>
+                </form>
+            </div>
         </div>
     </header>
     <h1 class="h1">Tarinatupa</h1>
-    <p class="esittely">Tarinatupa on kirjakauppa ja lainaamo, jossa tarinat heräävät eloon. Meiltä löydät laajan valikoiman kirjoja eri 
-        genreistä - fantasian lumoavista maailmoista tietokirjojen kiehtoviin oivalluksiin. Valitse painettu kirja, e-kirja 
+    <p class="esittely">Tarinatupa on kirjakauppa ja lainaamo, jossa tarinat heräävät eloon. Meiltä löydät laajan
+        valikoiman kirjoja eri
+        genreistä - fantasian lumoavista maailmoista tietokirjojen kiehtoviin oivalluksiin. Valitse painettu kirja,
+        e-kirja
         tai äänikirja ja sukella seikkailuun. Tule löytämään uutta luettavaa ja anna tarinoiden viedä mukanaan!
     </p>
     <br>
@@ -125,16 +142,20 @@
                 <!-- 12 kirjaa -->
                 <a href="uutuudet/Ratkomme_murhia.html"><img src="kuvat/RatkommeMurhia.PNG" alt="Kirja 1"></a>
                 <a href="uutuudet/Onyx_storm.html"><img src="kuvat/OnyxStorm.PNG" alt="Kirja 2"></a>
-                <a href="uutuudet/Heikki_Silvennoinen_Nousut_ja_laskut.html"><img src="kuvat/HeikkiSilvennoinenNousutJaLaskut.PNG" alt="Kirja 3"></a>
+                <a href="uutuudet/Heikki_Silvennoinen_Nousut_ja_laskut.html"><img
+                        src="kuvat/HeikkiSilvennoinenNousutJaLaskut.PNG" alt="Kirja 3"></a>
                 <a href="tietokirjat/Kylma_krematorio.html"><img src="kuvat/KylmaKrematorio.webp" alt="Kirja 4"></a>
-                <a href="uutuudet/Toivoa_versovat_paivat.html"><img src="kuvat/ToivoaVersovatPäivät.PNG" alt="Kirja 5"></a>
+                <a href="uutuudet/Toivoa_versovat_paivat.html"><img src="kuvat/ToivoaVersovatPäivät.PNG"
+                        alt="Kirja 5"></a>
                 <a href="uutuudet/Punainen_verkko.html"><img src="kuvat/PunainenVerkko.PNG" alt="Kirja 6"></a>
                 <a href="uutuudet/The_JFK_conspiracy.html"><img src="kuvat/TheJFKConspiracy.PNG" alt="Kirja 7"></a>
                 <a href="tietokirjat/5_Types_Of_Wealth.html"><img src="kuvat/The5TypesOfWealth.webp" alt="Kirja 8"></a>
                 <a href="uutuudet/The_winds_of_winter.html"><img src="kuvat/TheWindsOfWinter.PNG" alt="Kirja 9"></a>
                 <a href="tietokirjat/Let_Them_Theory.html"><img src="kuvat/TheLetThemTheory.webp" alt="Kirja 10"></a>
-                <a href="tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html"><img src="kuvat/SapiensIhmisenLyhytHistoria.webp" alt="Kirja 11"></a>
-                <a href="uutuudet/Sadan_vuoden_yksinaisyys.html"><img src="kuvat/SadanVuodenYksinäisyys.PNG" alt="Kirja 12"></a>
+                <a href="tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html"><img
+                        src="kuvat/SapiensIhmisenLyhytHistoria.webp" alt="Kirja 11"></a>
+                <a href="uutuudet/Sadan_vuoden_yksinaisyys.html"><img src="kuvat/SadanVuodenYksinäisyys.PNG"
+                        alt="Kirja 12"></a>
             </div>
             <button class="carousel-btn right" onclick="nextSlide('uutuudet', event)">&#10095;</button>
         </div>
@@ -149,23 +170,31 @@
                 <a href="suosituimmat/Pimeyden_sydan.html"><img src="kuvat/PimeydenSydän.PNG" alt="Kirja 1"></a>
                 <a href="suosituimmat/Suon_villi_laulu.html"><img src="kuvat/SuonVilliLaulu.PNG" alt="Kirja 2"></a>
                 <a href="suosituimmat/Sota_ja_rauha.html"><img src="kuvat/SotaJaRauha.PNG" alt="Kirja 3"></a>
-                <a href="suosituimmat/And_then_there_were_none.html"><img src="kuvat/AndThenThereWereNone.PNG" alt="Kirja 4"></a>
-                <a href="suosituimmat/Sinuhe_egyptilainen.html"><img src="kuvat/SinuheEgyptiläinen.PNG" alt="Kirja 5"></a>
+                <a href="suosituimmat/And_then_there_were_none.html"><img src="kuvat/AndThenThereWereNone.PNG"
+                        alt="Kirja 4"></a>
+                <a href="suosituimmat/Sinuhe_egyptilainen.html"><img src="kuvat/SinuheEgyptiläinen.PNG"
+                        alt="Kirja 5"></a>
                 <a href="suosituimmat/Tuntematon_sotilas.html"><img src="kuvat/TuntematonSotilas.PNG" alt="Kirja 6"></a>
-                <a href="suosituimmat/Harry_Potter_ja_viisasten_kivi.html"><img src="kuvat/HarryPotterJaViisastenKivi.PNG" alt="Kirja 7"></a>
-                <a href="suosituimmat/Taalla_pohjantahden_alla.html"><img src="kuvat/TäälläPohjantähdenAlla.PNG" alt="Kirja 8"></a>
-                <a href="suosituimmat/SunTzu's_the_art_of_war.html"><img src="kuvat/SunTzu'sTheArtOfWar.avif" alt="Kirja 9"></a>
-                <a href="suosituimmat/The_lord_of_the_rings.html"><img src="kuvat/TheLordOfTheRings.PNG" alt="Kirja 10"></a>
-                <a href="suosituimmat/Sinun_tahtesi_taalla.html"><img src="kuvat/SinunTahtesiTaalla.webp" alt="Kirja 11"></a>
+                <a href="suosituimmat/Harry_Potter_ja_viisasten_kivi.html"><img
+                        src="kuvat/HarryPotterJaViisastenKivi.PNG" alt="Kirja 7"></a>
+                <a href="suosituimmat/Taalla_pohjantahden_alla.html"><img src="kuvat/TäälläPohjantähdenAlla.PNG"
+                        alt="Kirja 8"></a>
+                <a href="suosituimmat/SunTzu's_the_art_of_war.html"><img src="kuvat/SunTzu'sTheArtOfWar.avif"
+                        alt="Kirja 9"></a>
+                <a href="suosituimmat/The_lord_of_the_rings.html"><img src="kuvat/TheLordOfTheRings.PNG"
+                        alt="Kirja 10"></a>
+                <a href="suosituimmat/Sinun_tahtesi_taalla.html"><img src="kuvat/SinunTahtesiTaalla.webp"
+                        alt="Kirja 11"></a>
                 <a href="suosituimmat/Hohto.html"><img src="kuvat/Hohto.PNG" alt="Kirja 12"></a>
             </div>
             <button class="carousel-btn right" onclick="nextSlide('suosituimmat', event)">&#10095;</button>
         </div>
     </section>
 
-<!-- Muista sisällyttää Bootstrapin JS-tiedostot ennen <body> loppua -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Muista sisällyttää Bootstrapin JS-tiedostot ennen <body> loppua -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
     <br>
     <footer>
         <div class="footer-content">
@@ -185,17 +214,44 @@
             <a href="#" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
         </div>
     </footer>
+    <script> //Windows Shift + Alt + F
+        const slider = document.getElementById('slider');
+        const priceRange = document.getElementById('priceRange');
+        let min = 0
+        let max = 35
+        noUiSlider.create(slider, {
+            start: [0, 60],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 60
+            },
+            step: 1,
+            format: {
+                to: value => Math.round(value),
+                from: value => Number(value)
+            }
+        });
+
+        // Reagoi arvon muutokseen
+        slider.noUiSlider.on('update', function (values) {
+            min = parseInt(values[0]);
+            max = parseInt(values[1]);
+            priceRange.textContent = `${min}–${max}`;
+        });
+    </script>
     <script defer>
-        document.getElementById("searchForm").addEventListener('submit', function(e) {
+        document.getElementById("searchForm").addEventListener('submit', function (e) {
             e.preventDefault(); // Estetään lomakkeen normaali lähetys
             let genre = "null"
-            if(document.querySelector('input[name="genre"]:checked')) {
+            let hintaRange = `${min}–${max}`
+            if (document.querySelector('input[name="genre"]:checked')) {
                 genre = document.querySelector('input[name="genre"]:checked').value
-            } 
-          const query = document.getElementById('searchInput').value.trim();
-          if (query) {
-            window.location.href = 'kirjahaku.html?q=' + encodeURIComponent(genre) + encodeURIComponent("_") + encodeURIComponent(query);
-          }
+            }
+            const query = document.getElementById('searchInput').value.trim();
+            if (query) {
+                window.location.href = 'kirjahaku.html?q=' + encodeURIComponent(genre) + encodeURIComponent("_") + encodeURIComponent(hintaRange) + encodeURIComponent("_") + encodeURIComponent(query);
+            }
         });
     </script>
     <script defer> //Kielen vaihto
@@ -208,7 +264,7 @@
         const loginButton = document.querySelector(".login-button")
         const searchBar = document.querySelector(".kirjahaku input")
         const openingHours = document.querySelector(".opening-hours")
-        const newsletter = document.querySelector(".newsletter a") 
+        const newsletter = document.querySelector(".newsletter a")
         const esittely = document.querySelector(".esittely") //näitä kolmea viimeistä ei tarvi muissa sivuissa
         const uutuudet = document.querySelector(".uutuudet")
         const suosituimmat = document.querySelector(".suosituimmat")
@@ -220,36 +276,37 @@
 
 
         langSelect.addEventListener("change", () => {
-            if(html.getAttribute("lang")=="fi") {
+            if (html.getAttribute("lang") == "fi") {
                 body.setAttribute("lang", "en");
                 html.setAttribute("lang", "en");
-                genreButton.textContent="Genres"
-                loginButton.textContent="Login"
+                genreButton.textContent = "Genres"
+                loginButton.textContent = "Login"
                 searchBar.setAttribute("placeholder", "Search books...")
-                openingHours.textContent="Opening hours: Mon-Fri 9-18, Sat 10-16, Sun closed"
-                newsletter.textContent="Subscribe to our newsletter"
+                openingHours.textContent = "Opening hours: Mon-Fri 9-18, Sat 10-16, Sun closed"
+                newsletter.textContent = "Subscribe to our newsletter"
                 genreOptions.forEach((link, index) => link.textContent = genreOptionsEn[index]);
                 genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinEn[index]);
-                esittely.textContent="Tarinatupa is a bookstore and lending library where stories come to life. We have a wide selection of books from different\<br>\genres - from the enchanting worlds of fantasy to the fascinating insights of non-fiction. Choose a printed book, e-book\<br>\or audiobook and dive into the adventure. Come and find something new to read and let the stories take you away!"
-                uutuudet.textContent="New Books"
-                suosituimmat.textContent="Most popular"
+                esittely.textContent = "Tarinatupa is a bookstore and lending library where stories come to life. We have a wide selection of books from different\<br>\genres - from the enchanting worlds of fantasy to the fascinating insights of non-fiction. Choose a printed book, e-book\<br>\or audiobook and dive into the adventure. Come and find something new to read and let the stories take you away!"
+                uutuudet.textContent = "New Books"
+                suosituimmat.textContent = "Most popular"
                 console.log("english");
             } else {
                 body.setAttribute("lang", "fi");
                 html.setAttribute("lang", "fi");
-                genreButton.textContent="Genret"
-                loginButton.textContent="Kirjaudu"
+                genreButton.textContent = "Genret"
+                loginButton.textContent = "Kirjaudu"
                 searchBar.setAttribute("placeholder", "Etsi kirjoja...")
-                openingHours.textContent="Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu"
-                newsletter.textContent="Tilaa uutiskirjeemme"
+                openingHours.textContent = "Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu"
+                newsletter.textContent = "Tilaa uutiskirjeemme"
                 genreOptions.forEach((link, index) => link.textContent = genreOptionsFi[index]);
                 genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinFi[index]);
-                esittely.textContent="Tarinatupa on kirjakauppa ja lainaamo, jossa tarinat heräävät eloon. Meiltä löydät laajan valikoiman kirjoja eri \<br>\genreistä - fantasian lumoavista maailmoista tietokirjojen kiehtoviin oivalluksiin. Valitse painettu kirja, e-kirja \<br>\tai äänikirja ja sukella seikkailuun. Tule löytämään uutta luettavaa ja anna tarinoiden viedä mukanaan!"
-                uutuudet.textContent="Uutuudet"
-                suosituimmat.textContent="Suosituimmat"
+                esittely.textContent = "Tarinatupa on kirjakauppa ja lainaamo, jossa tarinat heräävät eloon. Meiltä löydät laajan valikoiman kirjoja eri \<br>\genreistä - fantasian lumoavista maailmoista tietokirjojen kiehtoviin oivalluksiin. Valitse painettu kirja, e-kirja \<br>\tai äänikirja ja sukella seikkailuun. Tule löytämään uutta luettavaa ja anna tarinoiden viedä mukanaan!"
+                uutuudet.textContent = "Uutuudet"
+                suosituimmat.textContent = "Suosituimmat"
                 console.log("finnish");
             }
         });
     </script>
 </body>
+
 </html>
