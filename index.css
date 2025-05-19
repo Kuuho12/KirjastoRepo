@@ -220,7 +220,7 @@ footer {
     height: 24px;
 }
 
-.blue-button, .login-button, .cart-button, .language-selector  {
+.blue-button, .login-button, .cart-button, .language-selector, .suodattimet-button {
     background-color: #157ffb;
     color: white;
     border: none;
@@ -288,6 +288,14 @@ footer {
 .suodatinrivi {
     display: flex;
     justify-content: center;
+    margin: 5px 0px;
+}
+.suodatinrivi > div {
+    margin: 0px 8px;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 #genreform input {
     margin: 0px 6px !important;
@@ -299,10 +307,20 @@ footer {
     flex-direction: column;
     justify-items: center;
 }
-#slidercontainer {
+.slidercontainer {
     width: 12%;
-    margin-right: 15px;
+    margin-right: 22px !important;
+    margin-left: 22px !important;
 }
-#slider {
-    width: 100%;
+.slider {
+    width: 100% !important;
 }
+/*.noUi-connect {
+    background: #157ffb !important;
+}*//*
+.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+    background: rgb(255, 166, 0) !important;
+}
+.noUi-target.noUi-horizontal .noUi-tooltip {
+    background-color: rgb(255, 166, 0) !important;
+}*/

@@ -95,14 +95,6 @@
         </nav>
         <div id="suodattimet" class="collapse">
             <div class="suodatinrivi">
-            </div>
-            <div class="suodatinrivi">
-                <div id="slidercontainer">
-                    <div id="minJaMax">
-                        <p id="priceRange"></p>
-                    </div>
-                    <div id="slider"></div>
-                </div>
                 <form action="" id="genreform">
                     <input type="radio" id="fantasia" name="genre" value="fantasia">
                     <label for="fantasia">Fantasia</label>
@@ -123,6 +115,36 @@
                     <input type="radio" id="aanikirjat" name="genre" value="aanikirjat">
                     <label for="aanikirjat">Äänikirjat</label>
                 </form>
+            </div>
+            <div class="suodatinrivi">
+                <div class="slidercontainer">
+                    <div id="minJaMax">
+                        <p id="priceRange"></p>
+                    </div>
+                    <div id="hintaSlider" class="slider"></div>
+                </div>
+                <div>
+                    <form action="" id="searchWriter">
+                        <input type="text" placeholder="Etsi kirjailijaa..." id="kirjailijaInput">
+                    </form>
+                </div>
+                    <div class="slidercontainer">
+                        <div id="vuosiMinJaMax">
+                            <p id="vuosiRange"></p>
+                        </div>
+                        <div id="vuosiSlider" class="slider"></div>
+                    </div>
+                    <!--
+                    <select name="year" id="year">
+                        <option value=""></option>
+                        <script>
+                            var currentYear = new Date().getFullYear();
+                            for (var i = currentYear; i >= currentYear - 125; i--) {
+                                document.write('<option value="' + i + '">' + i + '</option>');
+                            }
+                        </script>
+                    </select>
+                    -->
             </div>
         </div>
     </header>
@@ -175,11 +197,16 @@
                 <a href="suosituimmat/Sinuhe_egyptilainen.html"><img src="kuvat/SinuheEgyptiläinen.PNG"
                         alt="Kirja 5"></a>
                 <a href="suosituimmat/Tuntematon_sotilas.html"><img src="kuvat/TuntematonSotilas.PNG" alt="Kirja 6"></a>
-                <a href="suosituimmat/Harry_Potter_ja_viisasten_kivi.html"><img src="kuvat/HarryPotterJaViisastenKivi.PNG" alt="Kirja 7"></a>
-                <a href="suosituimmat/Taalla_pohjantahden_alla.html"><img src="kuvat/TäälläPohjantähdenAlla.PNG" alt="Kirja 8"></a>
-                <a href="tietokirjat/SunTzu'sTheArtOfWar.html"><img src="kuvat/SunTzu'sTheArtOfWar.avif" alt="Kirja 9"></a>
-                <a href="suosituimmat/The_lord_of_the_rings.html"><img src="kuvat/TheLordOfTheRings.PNG" alt="Kirja 10"></a>
-                <a href="tietokirjat/Sinun_tahtesi_taalla.html"><img src="kuvat/SinunTahtesiTaalla.webp" alt="Kirja 11"></a>
+                <a href="suosituimmat/Harry_Potter_ja_viisasten_kivi.html"><img
+                        src="kuvat/HarryPotterJaViisastenKivi.PNG" alt="Kirja 7"></a>
+                <a href="suosituimmat/Taalla_pohjantahden_alla.html"><img src="kuvat/TäälläPohjantähdenAlla.PNG"
+                        alt="Kirja 8"></a>
+                <a href="tietokirjat/SunTzu'sTheArtOfWar.html"><img src="kuvat/SunTzu'sTheArtOfWar.avif"
+                        alt="Kirja 9"></a>
+                <a href="suosituimmat/The_lord_of_the_rings.html"><img src="kuvat/TheLordOfTheRings.PNG"
+                        alt="Kirja 10"></a>
+                <a href="tietokirjat/Sinun_tahtesi_taalla.html"><img src="kuvat/SinunTahtesiTaalla.webp"
+                        alt="Kirja 11"></a>
                 <a href="suosituimmat/Hohto.html"><img src="kuvat/Hohto.PNG" alt="Kirja 12"></a>
             </div>
             <button class="carousel-btn right" onclick="nextSlide('suosituimmat', event)">&#10095;</button>
@@ -210,10 +237,14 @@
         </div>
     </footer>
     <script> //Windows Shift + Alt + F
-        const slider = document.getElementById('slider');
-        const priceRange = document.getElementById('priceRange');
-        let min = 0
-        let max = 35
+        const slider = document.querySelector('#hintaSlider');
+        const slider2 = document.querySelector('#vuosiSlider');
+        const priceRange = document.querySelector('#priceRange');
+        const vuosiRange = document.querySelector('#vuosiRange')
+        let hintaMin = 0
+        let hintaMax = 60
+        let vuosiMin = 1900
+        let vusopiMax = 2025
         noUiSlider.create(slider, {
             start: [0, 60],
             connect: true,
@@ -227,27 +258,56 @@
                 from: value => Number(value)
             }
         });
+        noUiSlider.create(slider2, {
+            start: [1900, 2025],
+            connect: true,
+            range: {
+                'min': 1900,
+                'max': 2025
+            },
+            step: 2,
+            format: {
+                to: value => Math.round(value),
+                from: value => Number(value)
+            }
+        });
 
         // Reagoi arvon muutokseen
         slider.noUiSlider.on('update', function (values) {
-            min = parseInt(values[0]);
-            max = parseInt(values[1]);
-            priceRange.textContent = `${min}–${max}`;
+            hintaMin = parseInt(values[0]);
+            hintaMax = parseInt(values[1]);
+            priceRange.textContent = `Hinta: ${hintaMin}–${hintaMax} €`;
+        });
+        slider2.noUiSlider.on('update', function (values) {
+            vuosiMin = parseInt(values[0]);
+            vuosiMax = parseInt(values[1]);
+            vuosiRange.textContent = `Vuosiväli: ${vuosiMin}–${vuosiMax}`;
         });
     </script>
     <script defer>
         document.getElementById("searchForm").addEventListener('submit', function (e) {
-            e.preventDefault(); // Estetään lomakkeen normaali lähetys
+            e.preventDefault();
+            Lahetys()
+        });
+        document.getElementById("searchWriter").addEventListener('submit', function (e) {
+            e.preventDefault();
+            Lahetys()
+        });
+        function Lahetys() {
+            //e.preventDefault(); // Estetään lomakkeen normaali lähetys
             let genre = "null"
-            let hintaRange = `${min}–${max}`
+            let hintaRange = `${hintaMin}–${hintaMax}`
             if (document.querySelector('input[name="genre"]:checked')) {
                 genre = document.querySelector('input[name="genre"]:checked').value
             }
+            //const julkaisuvuosi = document.querySelector('select[name="year"]').value
+            const julkaisuvuosi = `${vuosiMin}–${vuosiMax}`
             const query = document.getElementById('searchInput').value.trim();
-            if (query) {
-                window.location.href = 'kirjahaku.html?q=' + encodeURIComponent(genre) + encodeURIComponent("_") + encodeURIComponent(hintaRange) + encodeURIComponent("_") + encodeURIComponent(query);
-            }
-        });
+            const writerQuery = document.getElementById('kirjailijaInput').value.replace(/[-_\.]/g, "");
+            //if (query) {
+            window.location.href = 'kirjahaku.html?q=' + encodeURIComponent(genre) + encodeURIComponent("_") + encodeURIComponent(hintaRange) + encodeURIComponent("_") + encodeURIComponent(julkaisuvuosi) + encodeURIComponent("_") + encodeURIComponent(writerQuery) + encodeURIComponent("_") + encodeURIComponent(query);
+            //}
+        }
     </script>
     <script defer> //Kielen vaihto
         const body = document.querySelector("body");
