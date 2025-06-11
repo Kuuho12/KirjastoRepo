@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Poppins ja Open Sans Fontit-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>kauhukirjat - Tarintatupa</title>
+    <style>
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script><!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script><!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script><!-- Latest compiled JavaScript -->
+    <header>
+        <nav class="navbar">
+            <div class="dropdown">
+            <button class="genre-button btn dropdown" data-toggle="dropdown">Genret</button>
+            <div class="dropdown-menu poppins genre-dropdown">
+                <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
+                <a class="dropdown-item" href="kaunokirjallisuus.html">Kaunokirjallisuus</a>
+                <a class="dropdown-item" href="tietokirjat.html">Tietokirjat</a>
+                <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
+                <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
+                <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
+                <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
+                <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
+            </div>
+            </div>
+            <div class="logo">
+                <a href="index.html"><img src="kuvat/Tarinatupa_logo.png" alt="Tarinatuvan logo"></a>
+                <span class="poppins">Tarinatupa</span>
+            </div>
+            <div class="search-bar kirjahaku">
+                <input type="text" placeholder="Etsi kirjoja...">
+                <button class="filter-button">🔍</button>
+            </div>
+            <div class="actions">
+                <select class="language-selector">
+                    <option class="fi" value="fi">Suomi</option>
+                    <option class="en" value="en">English</option>
+                </select>
+                <a href="ostoskori.html"><button class="blue-button cart-button">🛒</button></a>
+                <a href="kirjaudu.html"><button class="blue-button login-button">Kirjaudu</button></a>
+            </div>
+        </nav>
+    </header>
+    <div class="d-flex justify-content-center h1 mb-5">Englannin kieliset, muista vaihtaa oikeat kirjat</div>
+    <div class="kirjat container-fluid">
+        <div class="row kirjarow mb-5">
+            <div class="col-lg row puolirivia">
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/EdgarAllanPoeClassicTalesOfHorror.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Edgar Allan Poe's Classic Tales of Horror</p>
+                <p>Edgar Allan Poe</p>
+            </div>
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/Myohemmin.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Myöhemmin</p>
+                <p>Stephen King</p>
+            </div>
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/Hoivakoti.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Hoivakoti</p>
+                <p>Mats Strandberg</p>
+            </div>
+            </div>
+            <div class="col-lg row puolirivia">
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/Frankenstein.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Frankenstein</p>
+                <p>Mary Shelley</p>
+            </div>
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/NeMuut.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Ne muut</p>
+                <p>C. J. Tudor</p>
+            </div>
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/Kuokkamummo.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Kuokkamummo</p>
+                <p>Marko Hautala</p>
+            </div>
+            </div>
+        </div>
+        <div class="row kirjarow">
+            <div class="col-lg row puolirivia">
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/Holly.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Holly</p>
+                <p>Stephen King</p>
+            </div>
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/OnSuurtenMuinastenAika.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">On Suurten Muinaisten aika</p>
+                <p>Juri Nummelin</p>
+            </div>
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/Dracula.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Dracula</p>
+                <p>Bram Stoker</p>
+            </div>
+            </div>
+            <div class="col-lg row puolirivia">
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/PimeallaPuolella.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Pimeällä puolella</p>
+                <p>Stephen King</p>
+            </div>
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/H.P.Lovecraft.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">H. P. Lovecraftin parhaat</p>
+                <p>H. P. Lovecraft</p>
+            </div>
+            <div class="col-lg kirja border">
+                <a href=""><img src="kuvat/Gwendy.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Gwendy</p>
+                <p>Stephen King</p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p class="contact-info">
+                📧 asiakaspalvelu@tarinatupa.fi | 📞 044 123 1234 | 📍 Kotkantie 2, 90250 Oulu
+            </p>
+            <p class="opening-hours">
+                Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu
+            </p>
+            <p class="newsletter">
+                <a href="#">Tilaa uutiskirjeemme</a>
+            </p>
+        </div>
+        <div class="social-icons">
+            <a href="#" target="_blank"><img src="icons/facebook.svg" alt="Facebook"></a>
+            <a href="#" target="_blank"><img src="icons/x.svg" alt="X (Twitter)"></a>
+            <a href="#" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
+        </div>
+    </footer>
+    <script defer>
+        const body = document.querySelector("body");
+        const html = document.querySelector("html");
+        const langSelect = document.querySelector(".language-selector")
+        const genreButton = document.querySelector(".genre-button")
+        const genreOptions = document.querySelectorAll(".genre-dropdown .dropdown-item")
+        const loginButton = document.querySelector(".login-button")
+        const searchBar = document.querySelector(".kirjahaku input")
+        const openingHours = document.querySelector(".opening-hours")
+        const newsletter = document.querySelector(".newsletter a") //jokaiselle sivulle tarpeelliset loppuvat tähän
+
+        const genreOptionsFi = ["Fantasiakirjat", "Kaunokirjallisuus", "Tietokirjat", "Kauhukirjat", "Lastenkirjat", "Nuortenkirjat", "E-kirjat", "Äänikirjat"]
+        const genreOptionsEn = ["Fantasy books", "Fiction", "Non-fiction", "Horror books", "Children's books", "Young adult books", "E-books", "Audiobooks"]
+
+
+        langSelect.addEventListener("change", () => {
+            if(html.getAttribute("lang")=="fi") {
+                body.setAttribute("lang", "en");
+                html.setAttribute("lang", "en");
+                genreButton.textContent="Genres"
+                loginButton.textContent="Login"
+                searchBar.setAttribute("placeholder", "Search books...")
+                openingHours.textContent="Opening hours: Mon-Fri 9-18, Sat 10-16, Sun closed"
+                newsletter.textContent="Subscribe to our newsletter"
+                genreOptions.forEach((link, index) => link.textContent = genreOptionsEn[index]);
+                console.log("english");
+            } else {
+                body.setAttribute("lang", "fi");
+                html.setAttribute("lang", "fi");
+                genreButton.textContent="Genret"
+                loginButton.textContent="Kirjaudu"
+                searchBar.setAttribute("placeholder", "Etsi kirjoja...")
+                openingHours.textContent="Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu"
+                newsletter.textContent="Tilaa uutiskirjeemme"
+                genreOptions.forEach((link, index) => link.textContent = genreOptionsFi[index]);
+                console.log("finnish");
+            }
+        });
+    </script>
+</body>
+</html>
