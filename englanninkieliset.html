@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Poppins ja Open Sans Fontit-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>kauhukirjat - Tarintatupa</title>
+    <script defer src="javascript/suodattimet.js"></script>
+    <title>Tarintatupa</title>
     <style>
     </style>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script><!-- jQuery library -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script><!-- Popper JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script><!-- Latest compiled JavaScript -->
-    <header>
-        <nav class="navbar">
-            <div class="dropdown">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script><!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+<header>
+    <nav class="navbar">
+        <div class="dropdown">
             <button class="genre-button btn dropdown" data-toggle="dropdown">Genret</button>
             <div class="dropdown-menu poppins genre-dropdown">
                 <a class="dropdown-item" href="fantasiakirjat.html">Fantasiakirjat</a>
@@ -28,99 +30,147 @@
                 <a class="dropdown-item" href="kauhukirjat.html">Kauhukirjat</a>
                 <a class="dropdown-item" href="lastenkirjat.html">Lastenkirjat</a>
                 <a class="dropdown-item" href="nuortenkirjat.html">Nuortenkirjat</a>
+                <a class="dropdown-item" href="englanninkieliset.html">Englanninkieliset kirjat</a>
                 <a class="dropdown-item" href="e-kirjat.html">E-kirjat</a>
                 <a class="dropdown-item" href="aanikirjat.html">Äänikirjat</a>
             </div>
+        </div>
+        <div class="logo">
+            <a href="index.html"><img src="kuvat/Tarinatupa_logo.png" alt="Tarinatuvan logo"></a>
+            <span class="poppins">Tarinatupa</span>
+        </div>
+        <div class="search-bar kirjahaku">
+            <form action="" id="searchForm" class="d-flex">
+                <input type="text" placeholder="Etsi kirjoja..." id="searchInput">
+                <input type="submit" class="filter-button" value="🔍">
+            </form>
+            <button class="suodattimet-button" data-toggle="collapse"
+                data-target="#suodattimet">Suodattimet</button>
+        </div>
+        <div class="actions">
+            <select class="language-selector">
+                <option class="fi" value="fi">Suomi</option>
+                <option class="en" value="en">English</option>
+            </select>
+            <a href="ostoskori.html"><button class="blue-button cart-button">🛒</button></a>
+            <a href="kirjaudu.html"><button class="blue-button login-button">Kirjaudu</button></a>
+        </div>
+    </nav>
+    <div id="suodattimet" class="collapse">
+        <div class="suodatinrivi">
+            <form action="" id="genreform">
+                <input type="radio" id="fantasia" name="genre" value="fantasia">
+                <label for="fantasia">Fantasia</label>
+                <input type="radio" id="kaunokirjallisuus" name="genre" value="kauno">
+                <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
+                <input type="radio" id="tietokirjallisuus" name="genre" value="tieto">
+                <label for="tietokirjallisuus">Tietokirjallisuus</label>
+                <input type="radio" id="kauhu" name="genre" value="kauhu">
+                <label for="kauhu">Kauhu</label>
+                <input type="radio" id="lastenkirjat" name="genre" value="lasten">
+                <label for="lastenkirjat">Lastenkirjat</label>
+                <input type="radio" id="nuortenkirjat" name="genre" value="nuorten">
+                <label for="nuortenkirjat">Nuortenkirjat</label>
+                <input type="radio" id="englanninkieliset" name="genre" value="english">
+                <label for="englanninkieliset">Englanninkielinen</label>
+                <input type="radio" id="e-kirjat" name="genre" value="e-kirjat">
+                <label for="e-kirjat">E-kirjat</label>
+                <input type="radio" id="aanikirjat" name="genre" value="aanikirjat">
+                <label for="aanikirjat">Äänikirjat</label>
+            </form>
+        </div>
+        <div class="suodatinrivi">
+            <div class="slidercontainer">
+                <div id="minJaMax">
+                    <p id="priceRange"></p>
+                </div>
+                <div id="hintaSlider" class="slider"></div>
             </div>
-            <div class="logo">
-                <a href="index.html"><img src="kuvat/Tarinatupa_logo.png" alt="Tarinatuvan logo"></a>
-                <span class="poppins">Tarinatupa</span>
+            <div>
+                <form action="" id="searchWriter">
+                    <input type="text" placeholder="Etsi kirjailijaa..." id="kirjailijaInput">
+                </form>
             </div>
-            <div class="search-bar kirjahaku">
-                <input type="text" placeholder="Etsi kirjoja...">
-                <button class="filter-button">🔍</button>
-            </div>
-            <div class="actions">
-                <select class="language-selector">
-                    <option class="fi" value="fi">Suomi</option>
-                    <option class="en" value="en">English</option>
-                </select>
-                <a href="ostoskori.html"><button class="blue-button cart-button">🛒</button></a>
-                <a href="kirjaudu.html"><button class="blue-button login-button">Kirjaudu</button></a>
-            </div>
-        </nav>
-    </header>
-    <div class="d-flex justify-content-center h1 mb-5">Englannin kieliset, muista vaihtaa oikeat kirjat</div>
+                <div class="slidercontainer">
+                    <div id="vuosiMinJaMax">
+                        <p id="vuosiRange"></p>
+                    </div>
+                    <div id="vuosiSlider" class="slider"></div>
+                </div>
+        </div>
+    </div>
+</header>
+    <div class="d-flex justify-content-center h1 mb-5">Englanninkieliset</div>
     <div class="kirjat container-fluid">
         <div class="row kirjarow mb-5">
             <div class="col-lg row puolirivia">
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/EdgarAllanPoeClassicTalesOfHorror.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Edgar Allan Poe's Classic Tales of Horror</p>
-                <p>Edgar Allan Poe</p>
+                <a href="englanninkieliset/Atomic_Habits.html"><img src="kuvat/AtomicHabits.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Atomic Habits</p>
+                <p>James Clear</p>
             </div>
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/Myohemmin.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Myöhemmin</p>
-                <p>Stephen King</p>
+                <a href="suosituimmat/The_lord_of_the_rings.html"><img src="kuvat/TheLordOfTheRings.PNG" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">The Lord of the Rings</p>
+                <p>J. R. R. Tolkien</p>
             </div>
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/Hoivakoti.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Hoivakoti</p>
-                <p>Mats Strandberg</p>
+                <a href="uutuudet/Onyx_storm.html"><img src="kuvat/OnyxStorm.PNG" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Onyx storm</p>
+                <p>Rebecca Yarros</p>
             </div>
             </div>
             <div class="col-lg row puolirivia">
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/Frankenstein.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Frankenstein</p>
-                <p>Mary Shelley</p>
+                <a href="fantasiakirjat/A_Cuort_of_Wings_and_Ruin.html"><img src="kuvat/CourtOfWingsAndRuin.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">A Cuort of Wings and Ruin</p>
+                <p>Sarah J. Maas</p>
             </div>
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/NeMuut.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Ne muut</p>
-                <p>C. J. Tudor</p>
+                <a href="uutuudet/The_JFK_conspiracy.html"><img src="kuvat/TheJFKConspiracy.PNG" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">The JFK conspiracy</p>
+                <p>Brad Meltzer</p>
             </div>
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/Kuokkamummo.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Kuokkamummo</p>
-                <p>Marko Hautala</p>
+                <a href="englanninkieliset/SunriseOnTheReaping.html"><img src="kuvat/SunriseOnTheReaping.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Sunrise on the Reaping</p>
+                <p>Suzanne Collins</p>
             </div>
             </div>
         </div>
         <div class="row kirjarow">
             <div class="col-lg row puolirivia">
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/Holly.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Holly</p>
-                <p>Stephen King</p>
+                <a href="suosituimmat/And_then_there_were_none.html"><img src="kuvat/AndThenThereWereNone.PNG" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">And then there were none</p>
+                <p>Agatha Christie</p>
             </div>
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/OnSuurtenMuinastenAika.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">On Suurten Muinaisten aika</p>
-                <p>Juri Nummelin</p>
+                <a href="englanninkieliset/PictureOfDorianGray.html"><img src="kuvat/PictureOfDorianGray.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">The Picture of Dorian Gray</p>
+                <p>Oscar Wilde</p>
             </div>
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/Dracula.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Dracula</p>
-                <p>Bram Stoker</p>
+                <a href="englanninkieliset/StrawberryPatchPancakeHouse.html"><img src="kuvat/StrawberryPatchPancakeHouse.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">The Strawberry Patch Pancake House</p>
+                <p>Laurie Gilmore</p>
             </div>
             </div>
             <div class="col-lg row puolirivia">
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/PimeallaPuolella.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Pimeällä puolella</p>
-                <p>Stephen King</p>
+                <a href="englanninkieliset/GreatGatsby.html"><img src="kuvat/TheGreatGatsby.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">The Great Gatsby</p>
+                <p>F. Scott Fitzgerald</p>
             </div>
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/H.P.Lovecraft.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">H. P. Lovecraftin parhaat</p>
-                <p>H. P. Lovecraft</p>
+                <a href="tietokirjat/5_Types_Of_Wealth.html"><img src="kuvat/The5TypesOfWealth.webp" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">5 Types of Wealth: A Transformative Guide to Design Your Dream Life</p>
+                <p>Sahil Bloom</p>
             </div>
             <div class="col-lg kirja border">
-                <a href=""><img src="kuvat/Gwendy.webp" alt="" class="mx-auto d-flex"></a>
-                <p class="poppins-bold">Gwendy</p>
-                <p>Stephen King</p>
+                <a href="tietokirjat/SunTzu'sTheArtOfWar.html"><img src="kuvat/SunTzu'sTheArtOfWar.avif" alt="" class="mx-auto d-flex"></a>
+                <p class="poppins-bold">Sun Tzu's The Art of War</p>
+                <p>Sun Tzu</p>
             </div>
             </div>
         </div>
@@ -143,6 +193,79 @@
             <a href="#" target="_blank"><img src="icons/youtube.svg" alt="YouTube"></a>
         </div>
     </footer>
+    <script> //Windows Shift + Alt + F
+        const slider = document.querySelector('#hintaSlider');
+        const slider2 = document.querySelector('#vuosiSlider');
+        const priceRange = document.querySelector('#priceRange');
+        const vuosiRange = document.querySelector('#vuosiRange')
+        let hintaMin = 0
+        let hintaMax = 60
+        let vuosiMin = 1900
+        let vuosiMax = 2025
+        noUiSlider.create(slider, {
+            start: [0, 60],
+            connect: true,
+            range: {
+                'min': 0,
+                'max': 60
+            },
+            step: 1,
+            format: {
+                to: value => Math.round(value),
+                from: value => Number(value)
+            }
+        });
+        noUiSlider.create(slider2, {
+            start: [1900, 2025],
+            connect: true,
+            range: {
+                'min': 1900,
+                'max': 2025
+            },
+            step: 2,
+            format: {
+                to: value => Math.round(value),
+                from: value => Number(value)
+            }
+        });
+
+        // Reagoi arvon muutokseen
+        slider.noUiSlider.on('update', function (values) {
+            hintaMin = parseInt(values[0]);
+            hintaMax = parseInt(values[1]);
+            priceRange.textContent = `Hinta: ${hintaMin}–${hintaMax} €`;
+        });
+        slider2.noUiSlider.on('update', function (values) {
+            vuosiMin = parseInt(values[0]);
+            vuosiMax = parseInt(values[1]);
+            vuosiRange.textContent = `Vuosiväli: ${vuosiMin}–${vuosiMax}`;
+        });
+    </script>
+    <script defer>
+        document.getElementById("searchForm").addEventListener('submit', function (e) {
+            e.preventDefault();
+            Lahetys()
+        });
+        document.getElementById("searchWriter").addEventListener('submit', function (e) {
+            e.preventDefault();
+            Lahetys()
+        });
+        function Lahetys() {
+            //e.preventDefault(); // Estetään lomakkeen normaali lähetys
+            let genre = "null"
+            let hintaRange = `${hintaMin}–${hintaMax}`
+            if (document.querySelector('input[name="genre"]:checked')) {
+                genre = document.querySelector('input[name="genre"]:checked').value
+            }
+            //const julkaisuvuosi = document.querySelector('select[name="year"]').value
+            const julkaisuvuosi = `${vuosiMin}–${vuosiMax}`
+            const query = document.getElementById('searchInput').value.trim();
+            const writerQuery = document.getElementById('kirjailijaInput').value.replace(/[-_\.]/g, "");
+            //if (query) {
+            window.location.href = 'kirjahaku.html?q=' + encodeURIComponent(genre) + encodeURIComponent("_") + encodeURIComponent(hintaRange) + encodeURIComponent("_") + encodeURIComponent(julkaisuvuosi) + encodeURIComponent("_") + encodeURIComponent(writerQuery) + encodeURIComponent("_") + encodeURIComponent(query);
+            //}
+        }
+    </script>
     <script defer>
         const body = document.querySelector("body");
         const html = document.querySelector("html");
