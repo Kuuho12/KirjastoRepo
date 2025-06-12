@@ -2,6 +2,8 @@ const slider = document.querySelector('#hintaSlider');
 const slider2 = document.querySelector('#vuosiSlider');
 const priceRange = document.querySelector('#priceRange');
 const vuosiRange = document.querySelector('#vuosiRange')
+let labelTekstit = [["Hinta", "Vuosiväli"], ["Price", "Time frame"]]
+let kieli = 0
 let hintaMin = 0
 let hintaMax = 60
 let vuosiMin = 1900
@@ -37,10 +39,10 @@ noUiSlider.create(slider2, {
 slider.noUiSlider.on('update', function (values) {
     hintaMin = parseInt(values[0]);
     hintaMax = parseInt(values[1]);
-    priceRange.textContent = `Hinta: ${hintaMin}–${hintaMax} €`;
+    priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
 });
 slider2.noUiSlider.on('update', function (values) {
     vuosiMin = parseInt(values[0]);
     vuosiMax = parseInt(values[1]);
-    vuosiRange.textContent = `Vuosiväli: ${vuosiMin}–${vuosiMax}`;
+    vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
 });
