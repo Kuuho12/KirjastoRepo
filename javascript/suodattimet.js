@@ -1,7 +1,7 @@
-const suodattimetButton = document.querySelector(".suodattimet-button")
-const suodattimet = document.querySelector(".suodattimet")
+/*const suodattimetButton0 = document.querySelector(".suodattimet-button")
+const suodattimet = document.querySelector("#suodattimet")
 
-suodattimetButton.addEventListener("click", () => {
+suodattimetButton0.addEventListener("click", () => {
     if (document.getElementById("suodattimet").style.display !== "flex") {
         document.getElementById("suodattimet").style.display = "flex";
         document.getElementById("suodattimet").style.justifyContent = "center";
@@ -9,4 +9,4 @@ suodattimetButton.addEventListener("click", () => {
     } else {
         document.getElementById("suodattimet").style.display = "none";
     }
-})
+})*/
