@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../bootstrap-4.6.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
+    <!--<script defer src="../javascript/suodattimet.js"></script>-->
+    <link rel="icon" type="image/x-icon" href="../icons/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Poppins ja Open Sans Fontit-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>5 Types of Wealth: A Transformative Guide to Design Your Dream Life</title>
+    <style>
+        .paacontainer {
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script><!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script><!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.js"></script>
+<header>
+    <nav class="navbar">
+        <div class="dropdown">
+            <button class="genre-button btn dropdown" data-toggle="dropdown">Genret</button>
+            <div class="dropdown-menu poppins genre-dropdown">
+                <a class="dropdown-item" href="../fantasiakirjat.html">Fantasiakirjat</a>
+                <a class="dropdown-item" href="../kaunokirjallisuus.html">Kaunokirjallisuus</a>
+                <a class="dropdown-item" href="../tietokirjat.html">Tietokirjat</a>
+                <a class="dropdown-item" href="../kauhukirjat.html">Kauhukirjat</a>
+                <a class="dropdown-item" href="../lastenkirjat.html">Lastenkirjat</a>
+                <a class="dropdown-item" href="../nuortenkirjat.html">Nuortenkirjat</a>
+                <a class="dropdown-item" href="../englanninkieliset.html">Englanninkieliset kirjat</a>
+                <a class="dropdown-item" href="../e-kirjat.html">E-kirjat</a>
+                <a class="dropdown-item" href="../aanikirjat.html">Äänikirjat</a>
+            </div>
+        </div>
+        <div class="logo">
+            <a href="../index.html"><img src="../kuvat/Tarinatupa_logo.png" alt="Tarinatuvan logo"></a>
+            <span class="poppins">Tarinatupa</span>
+        </div>
+        <div class="search-bar kirjahaku">
+            <form action="" id="searchForm" class="d-flex">
+                <input type="text" placeholder="Etsi kirjoja..." id="searchInput">
+                <input type="submit" class="filter-button" value="🔍">
+            </form>
+            <button class="suodattimet-button" data-toggle="collapse"
+                data-target="#suodattimet">Suodattimet</button>
+        </div>
+        <div class="actions">
+            <select class="language-selector">
+                <option class="fi" value="fi">Suomi</option>
+                <option class="en" value="en">English</option>
+            </select>
+            <a href="../ostoskori.html"><button class="blue-button cart-button">🛒</button></a>
+            <a href="../kirjaudu.html"><button class="blue-button login-button">Kirjaudu</button></a>
+        </div>
+    </nav>
+    <div id="suodattimet" class="collapse">
+        <div class="suodatinrivi">
+            <form action="" id="genreform">
+                <input type="radio" id="fantasia" name="genre" value="fantasia">
+                <label for="fantasia">Fantasia</label>
+                <input type="radio" id="kaunokirjallisuus" name="genre" value="kauno">
+                <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
+                <input type="radio" id="tietokirjallisuus" name="genre" value="tieto">
+                <label for="tietokirjallisuus">Tietokirjallisuus</label>
+                <input type="radio" id="kauhu" name="genre" value="kauhu">
+                <label for="kauhu">Kauhu</label>
+                <input type="radio" id="lastenkirjat" name="genre" value="lasten">
+                <label for="lastenkirjat">Lastenkirjat</label>
+                <input type="radio" id="nuortenkirjat" name="genre" value="nuorten">
+                <label for="nuortenkirjat">Nuortenkirjat</label>
+                <input type="radio" id="englanninkieliset" name="genre" value="english">
+                <label for="englanninkieliset">Englanninkielinen</label>
+                <input type="radio" id="e-kirjat" name="genre" value="e-kirjat">
+                <label for="e-kirjat">E-kirjat</label>
+                <input type="radio" id="aanikirjat" name="genre" value="aanikirjat">
+                <label for="aanikirjat">Äänikirjat</label>
+            </form>
+        </div>
+        <div class="suodatinrivi">
+            <div class="slidercontainer">
+                <div id="minJaMax">
+                    <p id="priceRange"></p>
+                </div>
+                <div id="hintaSlider" class="slider"></div>
+            </div>
+            <div>
+                <form action="" id="searchWriter">
+                    <input type="text" placeholder="Etsi kirjailijaa..." id="kirjailijaInput">
+                </form>
+            </div>
+                <div class="slidercontainer">
+                    <div id="vuosiMinJaMax">
+                        <p id="vuosiRange"></p>
+                    </div>
+                    <div id="vuosiSlider" class="slider"></div>
+                </div>
+        </div>
+    </div>
+</header>
+        <div class="d-flex justify-content-center h1 mb-5">The Picture of Dorian Gray</div>
+        <div class="container-fluid paacontainer d-flex">
+            <div class="img-container container">
+                <img class="border" src="../kuvat/PictureOfDorianGray.webp" alt="The Picture of Dorian Gray -kansi">
+                <p class="h4 kirjantiedot">Oscar Wilde</p>
+                <p class="h4 kirjantiedot">Englanninkieliset kirjat</p>
+                <p class="h4 kirjantiedot">15,95 €</p>
+            </div>
+            <div class="container kuvauscontainer">
+                <p class="d-flex h2 mt-5">Kuvaus</p>
+                <p class="d-flex">The Penguin English Library Edition of The Picture of Dorian Gray by Oscar Wilde
+                    <br><br>
+                    ''I am jealous of everything whose beauty does not die. I am jealous of the portrait you have painted of me ... Why did you paint it? It will mock me some day - mock me horribly!''
+                    <br><br>
+                    A story of evil, debauchery and scandal, Oscar Wilde''s only novel tells of Dorian Gray, a beautiful yet corrupt man. When he wishes that a perfect portrait of himself would bear the signs of ageing in his place, the picture becomes his hideous secret, as it follows Dorian''s own downward spiral into cruelty and depravity. The Picture of Dorian Gray is a masterpiece of the evil in men''s hearts, and is as controversial and alluring as Wilde himself.
+                    <br><br>
+                    The Penguin English Library - 100 editions of the best fiction in English, from the eighteenth century and the very first novels to the beginning of the First World War.
+                </p>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-content">
+                <p class="contact-info">
+                    📧 asiakaspalvelu@tarinatupa.fi | 📞 044 123 1234 | 📍 Kotkantie 2, 90250 Oulu
+                </p>
+                <p class="opening-hours">
+                    Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu
+                </p>
+                <p class="newsletter">
+                    <a href="#">Tilaa uutiskirjeemme</a>
+                </p>
+            </div>
+            <div class="social-icons">
+                <a href="#" target="_blank"><img src="../icons/facebook.svg" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="../icons/x.svg" alt="X (Twitter)"></a>
+                <a href="#" target="_blank"><img src="../icons/youtube.svg" alt="YouTube"></a>
+            </div>
+        </footer>
+        <script src="../javascript/sliders.js"></script>
+        <script defer src="../javascript/kirjahaku2.js"></script>
+        <script defer>
+        const body = document.querySelector("body");
+        const html = document.querySelector("html");
+        const langSelect = document.querySelector(".language-selector")
+        const suodattimetButton = document.querySelector(".suodattimet-button")
+        const genreButton = document.querySelector(".genre-button")
+        const genreOptions = document.querySelectorAll(".genre-dropdown .dropdown-item")
+        const genreSuodatin = document.querySelectorAll("#suodattimet label")
+        const kirjailijaSearchBar = document.querySelector("#kirjailijaInput")
+        const loginButton = document.querySelector(".login-button")
+        const searchBar = document.querySelector(".kirjahaku input")
+        const openingHours = document.querySelector(".opening-hours")
+        const newsletter = document.querySelector(".newsletter a") //jokaiselle sivulle tarpeelliset loppuvat tähän
+
+        const genreOptionsFi = ["Fantasiakirjat", "Kaunokirjallisuus", "Tietokirjat", "Kauhukirjat", "Lastenkirjat", "Nuortenkirjat", "Englanninkieliset kirjat", "E-kirjat", "Äänikirjat"]
+        const genreOptionsEn = ["Fantasy books", "Fiction", "Non-fiction", "Horror books", "Children's books", "Young adult books", "English books", "E-books", "Audiobooks"]
+        const genreSuodatinFi = ["Fantasia", "Kaunokirjallisuus", "Tietokirjallisuus", "Kauhu", "Lastenkirjat", "Nuortenkirjat", "Englanninkielinen", "E-kirjat", "Äänikirjat"]
+        const genreSuodatinEn = ["Fantasy", "Fiction", "Non-fiction", "Horror", "For children", "For young adults", "English books", "E-books", "Audiobooks"]
+
+
+        langSelect.addEventListener("change", () => {
+            if(html.getAttribute("lang")=="fi") {
+                body.setAttribute("lang", "en");
+                html.setAttribute("lang", "en");
+                genreButton.textContent="Genres"
+                loginButton.textContent="Login"
+                suodattimetButton.textContent = "Filters"
+                searchBar.setAttribute("placeholder", "Search books...")
+                kirjailijaSearchBar.setAttribute("placeholder", "Search a writer...")
+                openingHours.textContent="Opening hours: Mon-Fri 9-18, Sat 10-16, Sun closed"
+                newsletter.textContent="Subscribe to our newsletter"
+                genreOptions.forEach((link, index) => link.textContent = genreOptionsEn[index]);
+                genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinEn[index]);
+                kieli = 1
+                priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
+                vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
+                console.log("english");
+            } else {
+                body.setAttribute("lang", "fi");
+                html.setAttribute("lang", "fi");
+                genreButton.textContent="Genret"
+                loginButton.textContent="Kirjaudu"
+                suodattimetButton.textContent = "Suodattimet"
+                searchBar.setAttribute("placeholder", "Etsi kirjoja...")
+                kirjailijaSearchBar.setAttribute("placeholder", "Etsi kirjailijaa...")
+                openingHours.textContent="Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu"
+                newsletter.textContent="Tilaa uutiskirjeemme"
+                genreOptions.forEach((link, index) => link.textContent = genreOptionsFi[index]);
+                genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinFi[index]);
+                kieli = 0
+                priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
+                vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
+                console.log("finnish");
+            }
+        });
+    </script>
+</body>
+</html>
