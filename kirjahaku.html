@@ -220,7 +220,7 @@
             ["Helmeilevä kuolema", "HelmeileväKuolema.webp", "aanikirjat/HelmeilevaKuolema.html", "Agatha Christie", ["aanikirjat"], 15.95, 2025],
             ["Heikki Silvennoinen Nousut ja laskut", "HeikkiSilvennoinenAanikirja.webp", "aanikirjat/HeikkiSilvennoinenNousutJaLaskut.html", "Tommi Saarela", ["aanikirjat"], 15.95, 2024],
             ["Laukku-Leena", "Laukku-Leena.webp", "aanikirjat/Laukku-Leena.html", "Päivi Ketolainen", ["aanikirjat"], 15.95, 2025],
-            ["Taru Sormusten herrasta: Sormuksen ritarit", "TaruSormustenHerrastaSormuksenRitarit.webp", "aanikirjat/TaruSormustenHerrastaSormuksenRitarit.htm", "J R R Tolkien", ["aanikirjat"], 16.95, 2020],
+            ["Taru Sormusten herrasta: Sormuksen ritarit", "TaruSormustenHerrastaSormuksenRitarit.webp", "aanikirjat/TaruSormustenHerrastaSormuksenRitarit.html", "J R R Tolkien", ["aanikirjat"], 16.95, 2020],
             ["Merkitty", "Merkitty.webp", "aanikirjat/Merkitty.html", "Max Seeck", ["aanikirjat"], 15.95, 2024],
             ["10 askelta mielen mestaruuteen", "10AskeltaMielenMestaruuteen.webp", "10askelta_mielen_mestaruuteen.html", "Harri Gustafsberg", ["aanikirjat"], 16.95, 2024],
             ["Kiehtova katala Venäjä Arja Paanasen silmin", "KiehtovaKatalaVenajaArjaPaanasenSilmin.webp", "aanikirjat/Kiehtova_katala_Venaja_Arja_Paanasen_silmin.html", "Anu Kuistiala / Arja Paananen", ["aanikirjat"], 19.95],
@@ -282,8 +282,8 @@
                     return true;
                 } else return false
             })
-            console.log(filteredBooks0)
-             const filteredBooks1 = filteredBooks0.filter(book => book[0].toLowerCase().includes(query));
+            //console.log(filteredBooks0)
+            const filteredBooks1 = filteredBooks0.filter(book => book[0].toLowerCase().includes(query));
             if (filteredBooks1.length > 0) {
                 otsikkoDiv.textContent = 'Hakutulokset haulle "'+query+'"'
                 const filteredBooks2 = filteredBooks1.filter(book => book[0].toLowerCase().startsWith(query))
@@ -330,7 +330,7 @@
                             /*const puolirivi = document.createElement('div')
                             puolirivi.classList.add("col-lg", "row", "puolirivia")
                             uusinRivi.appendChild(puolirivi)*/
-                            console.log(kirjojenMaara)
+                            //console.log(kirjojenMaara)
                             uusinPuoliRivi = toinenPuoliRivi
                         }
                     const div = document.createElement('div');
