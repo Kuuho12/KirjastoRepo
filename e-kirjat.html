@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Poppins ja Open Sans Fontit-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <title>kauhukirjat - Tarintatupa</title>
+    <title>E-kirjat – Tarintatupa</title>
     <style>
     </style>
 </head>
@@ -100,7 +100,7 @@
         </div>
     </div>
 </header>
-    <div class="d-flex justify-content-center h1 mb-5">E-kirjat, muista laittaa linki</div>
+    <div class="d-flex justify-content-center h1 mb-5">E-kirjat</div>
     <div class="kirjat container-fluid">
         <div class="row kirjarow mb-5">
             <div class="col-lg row puolirivia">
@@ -184,7 +184,7 @@
                 Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu
             </p>
             <p class="newsletter">
-                <a href="#">Tilaa uutiskirjeemme</a>
+                <a href="uutiskirje.html">Tilaa uutiskirjeemme</a>
             </p>
         </div>
         <div class="social-icons">
@@ -208,6 +208,7 @@
         const searchBar = document.querySelector(".kirjahaku input")
         const openingHours = document.querySelector(".opening-hours")
         const newsletter = document.querySelector(".newsletter a")
+        const h1 = document.querySelector(".h1")
 
         const genreOptionsFi = ["Fantasiakirjat", "Kaunokirjallisuus", "Tietokirjat", "Kauhukirjat", "Lastenkirjat", "Nuortenkirjat", "Englanninkieliset kirjat", "E-kirjat", "Äänikirjat"]
         const genreOptionsEn = ["Fantasy books", "Fiction", "Non-fiction", "Horror books", "Children's books", "Young adult books", "English books", "E-books", "Audiobooks"]
@@ -228,6 +229,8 @@
                 newsletter.textContent="Subscribe to our newsletter"
                 genreOptions.forEach((link, index) => link.textContent = genreOptionsEn[index]);
                 genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinEn[index]);
+                h1.textContent="E-books"
+
                 kieli = 1
                 priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
                 vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
@@ -244,6 +247,8 @@
                 newsletter.textContent="Tilaa uutiskirjeemme"
                 genreOptions.forEach((link, index) => link.textContent = genreOptionsFi[index]);
                 genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinFi[index]);
+                h1.textContent="E-kirjat"
+
                 kieli = 0
                 priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
                 vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;

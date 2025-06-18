@@ -6,10 +6,10 @@ let labelTekstit = [["Hinta", "Vuosiväli"], ["Price", "Time frame"]]
 let kieli = 0
 let hintaMin = 0
 let hintaMax = 60
-let vuosiMin = 1900
-let vuosiMax = 2025
+let vuosiMin = 1997
+let vuosiMax = 2027
 noUiSlider.create(slider, {
-    start: [0, 60],
+    start: [hintaMin, hintaMax],
     connect: true,
     range: {
         'min': 0,
@@ -22,13 +22,13 @@ noUiSlider.create(slider, {
     }
 });
 noUiSlider.create(slider2, {
-    start: [1900, 2025],
+    start: [vuosiMin, vuosiMax],
     connect: true,
     range: {
-        'min': 1900,
-        'max': 2025
+        'min': 1997,
+        'max': 2027
     },
-    step: 2,
+    step: 1,
     format: {
         to: value => Math.round(value),
         from: value => Number(value)
