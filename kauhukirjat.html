@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="bootstrap-4.6.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.0/dist/nouislider.min.css">
-    <script defer src="javascript/suodattimet.js"></script>
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com"> <!--Poppins ja Open Sans Fontit-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -204,19 +203,15 @@
             Lahetys()
         });
         function Lahetys() {
-            //e.preventDefault(); // Estetään lomakkeen normaali lähetys
             let genre = "null"
             let hintaRange = `${hintaMin}–${hintaMax}`
             if (document.querySelector('input[name="genre"]:checked')) {
                 genre = document.querySelector('input[name="genre"]:checked').value
             }
-            //const julkaisuvuosi = document.querySelector('select[name="year"]').value
             const julkaisuvuosi = `${vuosiMin}–${vuosiMax}`
             const query = document.getElementById('searchInput').value.trim();
             const writerQuery = document.getElementById('kirjailijaInput').value.replace(/[-_\.]/g, "");
-            //if (query) {
             window.location.href = 'kirjahaku.html?q=' + encodeURIComponent(genre) + encodeURIComponent("_") + encodeURIComponent(hintaRange) + encodeURIComponent("_") + encodeURIComponent(julkaisuvuosi) + encodeURIComponent("_") + encodeURIComponent(writerQuery) + encodeURIComponent("_") + encodeURIComponent(query);
-            //}
         }
     </script>
    <script defer>

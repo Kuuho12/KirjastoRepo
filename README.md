@@ -8,5 +8,5 @@ kirjahaku2.js on tarkoitettu sivuille, jotka ovat kansioiden sisällä.
 
 Lainaa, Lisää toivelistaan ja Lisää ostoskoriin -nappulat puuttuvat kirjasivuilta  
 kirjaudu.html, rekisteroidy.html ja uutiskirje.html kokonaan tyhjiä  
-ostoskori.html ja profiili.html tyhjiä  
+ostoskori.html ja profiili.html kesken  
 Tietokanta ja backend kesken  

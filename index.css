@@ -40,7 +40,6 @@ body {
 .search-bar input {
     width: 100%;
     padding: 10px;
-    /*margin-right: 10px;*/
 }
 #searchInput {
     width: 100%;
@@ -49,7 +48,6 @@ body {
     width: 100%;
     padding: 10px;
     padding-right: 0px !important;
-    /*margin-right: 10px;*/
 }
 .filter-button {
     background: none;
@@ -72,25 +70,18 @@ body {
     margin-right: 1%;
     padding-left: 0px !important;
     padding-right: 0px !important;
-    /*text-align: center;*/
 }
 .kirja > p {
-    /*padding-left: 15px;
-    padding-right: 15px;*/
-    /*display: flex;*/
     align-self: center;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 5%;
     padding-right: 5%;
-    /*text-align: center;*/
 }
 .kirja>a>img {
     max-height: 260px;
     max-width: 90%;
-    /*margin-right: auto;
-    margin-left: auto;*/
     margin-bottom: 14px;
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -140,11 +131,6 @@ p {
     margin-left: auto;
     margin-bottom: 14px;
     display: block;
-    /*padding-left: auto;
-    padding-right: auto;*/
-    /*padding: 0px 13% 0px 13%;*/
-    /*padding-left: 0px !important;
-    padding-right: 0px !important;*/
 }
 .kuvauscontainer {
     margin-left: 15px;
@@ -157,8 +143,6 @@ p {
 }
 .kuvauscontainer p {
     text-align: left;
-    /*margin-left: 8% !important;
-    margin-right: 8% !important;*/
     margin-inline-start: 0%;
     margin-inline-end: 0%;
     max-width: 100% !important;
@@ -288,7 +272,6 @@ footer {
 .suodatinrivi {
     display: flex;
     justify-content: center;
-    /*margin: 5px 0px;*/
     padding: 5px 0px;
 }
 .suodatinrivi > div {
@@ -304,10 +287,6 @@ footer {
 #genreform label {
     margin: 0px !important;
 }
-/*#suodattimet {
-    flex-direction: column;
-    justify-items: center;
-}*/
 .slidercontainer {
     width: 12%;
     margin-right: 22px !important;
@@ -316,12 +295,3 @@ footer {
 .slider {
     width: 100% !important;
 }
-/*.noUi-connect {
-    background: #157ffb !important;
-}*//*
-.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
-    background: rgb(255, 166, 0) !important;
-}
-.noUi-target.noUi-horizontal .noUi-tooltip {
-    background-color: rgb(255, 166, 0) !important;
-}*/
