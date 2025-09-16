@@ -53,25 +53,52 @@
         <div id="suodattimet" class="collapse">
             <div class="suodatinrivi">
                 <form action="" id="genreform">
-                    <input type="radio" id="fantasia" name="genre" value="fantasia">
-                    <label for="fantasia">Fantasia</label>
-                    <input type="radio" id="kaunokirjallisuus" name="genre" value="kauno">
-                    <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
-                    <input type="radio" id="tietokirjallisuus" name="genre" value="tieto">
-                    <label for="tietokirjallisuus">Tietokirjallisuus</label>
-                    <input type="radio" id="kauhu" name="genre" value="kauhu">
-                    <label for="kauhu">Kauhu</label>
-                    <input type="radio" id="lastenkirjat" name="genre" value="lasten">
-                    <label for="lastenkirjat">Lastenkirjat</label>
-                    <input type="radio" id="nuortenkirjat" name="genre" value="nuorten">
-                    <label for="nuortenkirjat">Nuortenkirjat</label>
-                    <input type="radio" id="englanninkieliset" name="genre" value="english">
-                    <label for="englanninkieliset">Englanninkielinen</label>
-                    <input type="radio" id="e-kirjat" name="genre" value="e-kirjat">
-                    <label for="e-kirjat">E-kirjat</label>
-                    <input type="radio" id="aanikirjat" name="genre" value="aanikirjat">
-                    <label for="aanikirjat">Äänikirjat</label>
-                </form>
+                <label for="fantasia">
+                    Fantasia
+                    <input type="checkbox" id="fantasia" name="genre" value="fantasia" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="kaunokirjallisuus">
+                    Kaunokirjallisuus
+                    <input type="checkbox" id="kaunokirjallisuus" name="genre" value="kauno" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="tietokirjallisuus">
+                    Tietokirjallisuus
+                    <input type="checkbox" id="tietokirjallisuus" name="genre" value="tieto" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="kauhu">
+                    Kauhu
+                    <input type="checkbox" id="kauhu" name="genre" value="kauhu" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="lastenkirjat">
+                    Lastenkirjat
+                    <input type="checkbox" id="lastenkirjat" name="genre" value="lasten" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="nuortenkirjat">
+                    Nuortenkirjat
+                    <input type="checkbox" id="nuortenkirjat" name="genre" value="nuorten" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="englanninkieliset">
+                    Englanninkielinen
+                    <input type="checkbox" id="englanninkieliset" name="genre" value="english" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="e-kirjat">
+                    E-kirjat
+                    <input type="checkbox" id="e-kirjat" name="genre" value="ekirjat" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="aanikirjat">
+                    Äänikirjat
+                    <input type="checkbox" id="aanikirjat" name="genre" value="aanikirjat" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+            </form>
             </div>
             <div class="suodatinrivi">
                 <div class="slidercontainer">
@@ -200,18 +227,18 @@
             ["Taivaansinisen meren tuolla puolen", "TaivaansinisenMerenTuollaPuolen.webp", "nuortenkirjat/Taivaansinisen_meren_tuolla_puolen.html", "TJ Klune", ["nuorten", "kauno"], 31.95, 2025],
             ["Unohdettujen kirja", "UnohdettujenKirja.webp", "nuortenkirjat/Unohdettujen_kirja.html", "Anne-Maija Aalto", ["nuorten", "kauno"], 30.95, 2024],
             ["One Piece 104", "OnePiece104.webp", "nuortenkirjat/One_Piece_104.html", "Eiichiro Oda", ["nuorten"], 10.95, 2025],
-            ["Kvanttikilpajuoksu", "Kvanttikilpajuoksu.webp", "e-kirjat/Kvanttikilpajuoksu.html", "Tommi Tenkanen", ["e-kirjat", "tieto"], 15.95, 2025],
-            ["Jumalan synty - Isän ja Pojan kätketty historia", "JumalanSynty.webp", "e-kirjat/Jumalan_synty.html", "Ville Mäkipelto / Juha Pakkala / Raimo Hakola", ["e-kirjat"], 19.95, 2025],
-            ["Vaikene kuin muuri", "VaikeneKuinMuuri.webp", "e-kirjat/Vaikene_kuin_muuri.html", "Maria Adolfsson", ["e-kirjat", "kauno"], 14.95, 2025],
-            ["Ctrl+Alt+Kaaos", "Ctrl+Alt+Kaaos.webp", "e-kirjat/Ctrl+Alt+Kaaos.html", "Joe Tidy", ["e-kirjat", "tieto"], 21.95, 2025],
-            ["Haltiain verta - The Witcher - Noituri 3", "HaltianVerta.webp", "e-kirjat/HaltianVerta.html", "Andrzej Sapkowski", ["e-kirjat", "fantasia", "kauno"], 10.95, 2015],
-            ["Jakob", "Jakob.webp", "e-kirjat/Jakob.html", "Satu Rämö", ["e-kirjat", "kauno"], 14.95, 2023],
-            ["Myrskynsilmä", "MyrskynSilma.webp", "e-kirjat/Myrskynsilma.html", "Rebecca Yarros", ["e-kirjat", "fantasia", "kauno"], 14.95, 2025],
-            ["Erikoisjoukoissa – Janne Lehtosen tarina", "Erikoisjoukoissa–JanneLehtosenTarina.webp", "e-kirjat/Erikoisjoukoissa-JanneLehtosenTarina.html", "Kati Pukki / Janne Lehtonen", ["e-kirjat", "tieto"], 14.95, 2025],
-            ["Kadonnut perintö", "KadonnutPerinto.webp", "e-kirjat/Kadonnut_perinto.html", "Virpi Hämeen-Anttila", ["e-kirjat", "kauno"], 19.95, 2025],
-            ["Lehmä synnyttää yöllä", "LehmaSynnyttaaYolla.webp", "e-kirjat/Lehma_synnyttaa_yolla.html", "Pajtim Statovci", ["e-kirjat", "kauno"], 15.95, 2024],
-            ["Viikinkien valtakunta", "ViikinkienValtakunta.webp", "e-kirjat/Viikinkien_valtakunta.html", "Tonny Gulløv", ["e-kirjat", "kauno"], 14.95, 2025],
-            ["Zeus", "Zeus.webp", "e-kirjat/Zeus.html", "Ilkka Remes", ["e-kirjat", "kauno"], 14.95, 2024],
+            ["Kvanttikilpajuoksu", "Kvanttikilpajuoksu.webp", "e-kirjat/Kvanttikilpajuoksu.html", "Tommi Tenkanen", ["ekirjat", "tieto"], 15.95, 2025],
+            ["Jumalan synty - Isän ja Pojan kätketty historia", "JumalanSynty.webp", "e-kirjat/Jumalan_synty.html", "Ville Mäkipelto / Juha Pakkala / Raimo Hakola", ["ekirjat"], 19.95, 2025],
+            ["Vaikene kuin muuri", "VaikeneKuinMuuri.webp", "e-kirjat/Vaikene_kuin_muuri.html", "Maria Adolfsson", ["ekirjat", "kauno"], 14.95, 2025],
+            ["Ctrl+Alt+Kaaos", "Ctrl+Alt+Kaaos.webp", "e-kirjat/Ctrl+Alt+Kaaos.html", "Joe Tidy", ["ekirjat", "tieto"], 21.95, 2025],
+            ["Haltiain verta - The Witcher - Noituri 3", "HaltianVerta.webp", "e-kirjat/HaltianVerta.html", "Andrzej Sapkowski", ["ekirjat", "fantasia", "kauno"], 10.95, 2015],
+            ["Jakob", "Jakob.webp", "e-kirjat/Jakob.html", "Satu Rämö", ["ekirjat", "kauno"], 14.95, 2023],
+            ["Myrskynsilmä", "MyrskynSilma.webp", "e-kirjat/Myrskynsilma.html", "Rebecca Yarros", ["ekirjat", "fantasia", "kauno"], 14.95, 2025],
+            ["Erikoisjoukoissa – Janne Lehtosen tarina", "Erikoisjoukoissa–JanneLehtosenTarina.webp", "e-kirjat/Erikoisjoukoissa-JanneLehtosenTarina.html", "Kati Pukki / Janne Lehtonen", ["ekirjat", "tieto"], 14.95, 2025],
+            ["Kadonnut perintö", "KadonnutPerinto.webp", "e-kirjat/Kadonnut_perinto.html", "Virpi Hämeen-Anttila", ["ekirjat", "kauno"], 19.95, 2025],
+            ["Lehmä synnyttää yöllä", "LehmaSynnyttaaYolla.webp", "e-kirjat/Lehma_synnyttaa_yolla.html", "Pajtim Statovci", ["ekirjat", "kauno"], 15.95, 2024],
+            ["Viikinkien valtakunta", "ViikinkienValtakunta.webp", "e-kirjat/Viikinkien_valtakunta.html", "Tonny Gulløv", ["ekirjat", "kauno"], 14.95, 2025],
+            ["Zeus", "Zeus.webp", "e-kirjat/Zeus.html", "Ilkka Remes", ["ekirjat", "kauno"], 14.95, 2024],
             ["Rakel", "Rakel.webp", "aanikirjat/Rakel.html", "Satu Rämö", ["aanikirjat", "kauno"], 15.95, 2024],
             ["Sinuhe egyptiläinen osa 1", "SinuheEgyptilainenAanikirja.webp", "aanikirjat/Sinuhe_egyptilainen_osa_1.html", "Mika Waltari", ["aanikirjat", "kauno"], 13.95, 2010],
             ["Nexus - Tietoverkkojen lyhyt historia", "Nexus.webp", "aanikirjat/Nexus.html", "Yuval Noah Harari", ["aanikirjat", "tieto"], 20.95, 2024],
@@ -229,7 +256,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const kokoQuery = urlParams.get('q')?.toLowerCase();
         const match = kokoQuery.match(/^(.*?)_(.*?)–(.*?)_(.*?)–(.*?)_(.*?)_(.*)$/);
-        const genre = match[1]
+        const genre = match[1].split(/-/); genre.pop();
         const min = match[2]
         const max = match[3]
         const vuosiMinimi = match[4]
@@ -256,8 +283,9 @@
             if(kirjailija !== "") {
                 filteredBooks0 = filteredBooks0.filter(book => book[3].toLocaleLowerCase().replace(/[-_\.]/g, "").includes(kirjailija)) 
             }
-            if(genre !== "null") {
-                filteredBooks0 = filteredBooks0.filter(book => book[4].includes(genre)) 
+            if(genre[0]!="") {
+                for(i = 0; i < genre.length; i++) {
+                filteredBooks0 = filteredBooks0.filter(book => book[4].includes(genre[i])) }
             }
             filteredBooks0 = filteredBooks0.filter(book => {
                 if(book[5]>=min && book[5]<=max) {
@@ -384,7 +412,11 @@
                 openingHours.textContent="Opening hours: Mon-Fri 9-18, Sat 10-16, Sun closed"
                 newsletter.textContent="Subscribe to our newsletter"
                 genreOptions.forEach((link, index) => link.textContent = genreOptionsEn[index]);
-                genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinEn[index]);
+                genreSuodatin.forEach((label, index) => {
+                const textNode = Array.from(label.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+                if (textNode) textNode.nodeValue = genreSuodatinEn[index];
+                });
+                otsikkoDiv.textContent = 'Search results for "'+query+'"'
                 kieli = 1
                 priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
                 vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
@@ -400,7 +432,11 @@
                 openingHours.textContent="Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu"
                 newsletter.textContent="Tilaa uutiskirjeemme"
                 genreOptions.forEach((link, index) => link.textContent = genreOptionsFi[index]);
-                genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinFi[index]);
+                genreSuodatin.forEach((label, index) => {
+                const textNode = Array.from(label.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+                if (textNode) textNode.nodeValue = genreSuodatinFi[index];
+                });
+                otsikkoDiv.textContent = 'Hakutulokset haulle "'+query+'"'
                 kieli = 0
                 priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
                 vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;

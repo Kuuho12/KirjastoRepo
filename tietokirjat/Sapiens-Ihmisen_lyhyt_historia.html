@@ -70,24 +70,51 @@
     <div id="suodattimet" class="collapse">
         <div class="suodatinrivi">
             <form action="" id="genreform">
-                <input type="radio" id="fantasia" name="genre" value="fantasia">
-                <label for="fantasia">Fantasia</label>
-                <input type="radio" id="kaunokirjallisuus" name="genre" value="kauno">
-                <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
-                <input type="radio" id="tietokirjallisuus" name="genre" value="tieto">
-                <label for="tietokirjallisuus">Tietokirjallisuus</label>
-                <input type="radio" id="kauhu" name="genre" value="kauhu">
-                <label for="kauhu">Kauhu</label>
-                <input type="radio" id="lastenkirjat" name="genre" value="lasten">
-                <label for="lastenkirjat">Lastenkirjat</label>
-                <input type="radio" id="nuortenkirjat" name="genre" value="nuorten">
-                <label for="nuortenkirjat">Nuortenkirjat</label>
-                <input type="radio" id="englanninkieliset" name="genre" value="english">
-                <label for="englanninkieliset">Englanninkielinen</label>
-                <input type="radio" id="e-kirjat" name="genre" value="e-kirjat">
-                <label for="e-kirjat">E-kirjat</label>
-                <input type="radio" id="aanikirjat" name="genre" value="aanikirjat">
-                <label for="aanikirjat">Äänikirjat</label>
+                <label for="fantasia">
+                    Fantasia
+                    <input type="checkbox" id="fantasia" name="genre" value="fantasia" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="kaunokirjallisuus">
+                    Kaunokirjallisuus
+                    <input type="checkbox" id="kaunokirjallisuus" name="genre" value="kauno" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="tietokirjallisuus">
+                    Tietokirjallisuus
+                    <input type="checkbox" id="tietokirjallisuus" name="genre" value="tieto" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="kauhu">
+                    Kauhu
+                    <input type="checkbox" id="kauhu" name="genre" value="kauhu" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="lastenkirjat">
+                    Lastenkirjat
+                    <input type="checkbox" id="lastenkirjat" name="genre" value="lasten" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="nuortenkirjat">
+                    Nuortenkirjat
+                    <input type="checkbox" id="nuortenkirjat" name="genre" value="nuorten" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="englanninkieliset">
+                    Englanninkielinen
+                    <input type="checkbox" id="englanninkieliset" name="genre" value="english" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="e-kirjat">
+                    E-kirjat
+                    <input type="checkbox" id="e-kirjat" name="genre" value="ekirjat" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="aanikirjat">
+                    Äänikirjat
+                    <input type="checkbox" id="aanikirjat" name="genre" value="aanikirjat" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
             </form>
         </div>
         <div class="suodatinrivi">
@@ -152,61 +179,6 @@
         </footer>
         <script src="../javascript/sliders.js"></script>
         <script defer src="../javascript/kirjahaku2.js"></script>
-        <script defer>
-        const body = document.querySelector("body");
-        const html = document.querySelector("html");
-        const langSelect = document.querySelector(".language-selector")
-        const suodattimetButton = document.querySelector(".suodattimet-button")
-        const genreButton = document.querySelector(".genre-button")
-        const genreOptions = document.querySelectorAll(".genre-dropdown .dropdown-item")
-        const genreSuodatin = document.querySelectorAll("#suodattimet label")
-        const kirjailijaSearchBar = document.querySelector("#kirjailijaInput")
-        const loginButton = document.querySelector(".login-button")
-        const searchBar = document.querySelector(".kirjahaku input")
-        const openingHours = document.querySelector(".opening-hours")
-        const newsletter = document.querySelector(".newsletter a")
-
-        const genreOptionsFi = ["Fantasiakirjat", "Kaunokirjallisuus", "Tietokirjat", "Kauhukirjat", "Lastenkirjat", "Nuortenkirjat", "Englanninkieliset kirjat", "E-kirjat", "Äänikirjat"]
-        const genreOptionsEn = ["Fantasy books", "Fiction", "Non-fiction", "Horror books", "Children's books", "Young adult books", "English books", "E-books", "Audiobooks"]
-        const genreSuodatinFi = ["Fantasia", "Kaunokirjallisuus", "Tietokirjallisuus", "Kauhu", "Lastenkirjat", "Nuortenkirjat", "Englanninkielinen", "E-kirjat", "Äänikirjat"]
-        const genreSuodatinEn = ["Fantasy", "Fiction", "Non-fiction", "Horror", "For children", "For young adults", "English books", "E-books", "Audiobooks"]
-
-
-        langSelect.addEventListener("change", () => {
-            if(html.getAttribute("lang")=="fi") {
-                body.setAttribute("lang", "en");
-                html.setAttribute("lang", "en");
-                genreButton.textContent="Genres"
-                loginButton.textContent="Login"
-                suodattimetButton.textContent = "Filters"
-                searchBar.setAttribute("placeholder", "Search books...")
-                kirjailijaSearchBar.setAttribute("placeholder", "Search a writer...")
-                openingHours.textContent="Opening hours: Mon-Fri 9-18, Sat 10-16, Sun closed"
-                newsletter.textContent="Subscribe to our newsletter"
-                genreOptions.forEach((link, index) => link.textContent = genreOptionsEn[index]);
-                genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinEn[index]);
-                kieli = 1
-                priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
-                vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
-                console.log("english");
-            } else {
-                body.setAttribute("lang", "fi");
-                html.setAttribute("lang", "fi");
-                genreButton.textContent="Genret"
-                loginButton.textContent="Kirjaudu"
-                suodattimetButton.textContent = "Suodattimet"
-                searchBar.setAttribute("placeholder", "Etsi kirjoja...")
-                kirjailijaSearchBar.setAttribute("placeholder", "Etsi kirjailijaa...")
-                openingHours.textContent="Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu"
-                newsletter.textContent="Tilaa uutiskirjeemme"
-                genreOptions.forEach((link, index) => link.textContent = genreOptionsFi[index]);
-                genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinFi[index]);
-                kieli = 0
-                priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
-                vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
-                console.log("finnish");
-            }
-        });
-    </script>
+        <script defer src="../javascript/kaannos.js"></script>
 </body>
 </html>

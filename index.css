@@ -284,9 +284,113 @@ footer {
 #genreform input {
     margin: 0px 6px !important;
 }
-#genreform label {
-    margin: 0px !important;
+#genreform input[type="checkbox"].custom-checkbox {
+    display: none;
 }
+#genreform label {
+    position: relative;
+    padding-left: 32px;
+    cursor: pointer;
+    user-select: none;
+    margin-right: 18px !important;
+    font-size: 16px;
+    line-height: 24px;
+    display: inline-block;
+}
+#genreform .checkmark {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    transition: background 0.2s, border 0.2s;
+    box-sizing: border-box;
+}
+#genreform label:hover .checkmark {
+    background-color: #ccc;
+}
+#genreform input[type="checkbox"].custom-checkbox:checked + .checkmark {
+    background-color: #43a047;
+    border: 2px solid #43a047;
+}
+#genreform .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 4px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    border-radius: 1px;
+    transform: rotate(45deg);
+}
+#genreform input[type="checkbox"].custom-checkbox:checked + .checkmark:after {
+    display: block;
+}
+/* Custom rounded checkbox styles */
+        #genreform {
+            /* ...existing code... */
+        }
+        #genreform input[type="checkbox"].custom-checkbox {
+            display: none;
+        }
+        #genreform label {
+            position: relative;
+            padding-left: 32px;
+            cursor: pointer;
+            user-select: none;
+            margin-right: 18px !important;
+            font-size: 16px;
+            line-height: 24px;
+            /* ...existing code... */
+        }
+        #genreform .checkmark {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 22px;
+            width: 22px;
+            background-color: #eee;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            transition: background 0.2s, border 0.2s;
+        }
+        #genreform label:hover .checkmark {
+            background-color: #ccc;
+        }
+        #genreform input[type="checkbox"].custom-checkbox:checked + label .checkmark,
+        #genreform input[type="checkbox"].custom-checkbox:checked ~ label[for] .checkmark {
+            background-color: #157ffb;
+            border: 2px solid #157ffb;
+        }
+        #genreform input[type="checkbox"].custom-checkbox:checked + label .checkmark:after,
+        #genreform input[type="checkbox"].custom-checkbox:checked ~ label[for] .checkmark:after {
+            display: block;
+        }
+        #genreform .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+        #genreform input[type="checkbox"].custom-checkbox:checked + label .checkmark:after,
+        #genreform input[type="checkbox"].custom-checkbox:checked ~ label[for] .checkmark:after {
+            display: block;
+        }
+
+
+
+
 .slidercontainer {
     width: 12%;
     margin-right: 22px !important;

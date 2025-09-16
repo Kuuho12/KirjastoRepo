@@ -56,24 +56,52 @@
     <div id="suodattimet" class="collapse">
         <div class="suodatinrivi">
             <form action="" id="genreform">
-                <input type="radio" id="fantasia" name="genre" value="fantasia">
-                <label for="fantasia">Fantasia</label>
-                <input type="radio" id="kaunokirjallisuus" name="genre" value="kauno">
-                <label for="kaunokirjallisuus">Kaunokirjallisuus</label>
-                <input type="radio" id="tietokirjallisuus" name="genre" value="tieto">
-                <label for="tietokirjallisuus">Tietokirjallisuus</label>
-                <input type="radio" id="kauhu" name="genre" value="kauhu">
-                <label for="kauhu">Kauhu</label>
-                <input type="radio" id="lastenkirjat" name="genre" value="lasten">
-                <label for="lastenkirjat">Lastenkirjat</label>
-                <input type="radio" id="nuortenkirjat" name="genre" value="nuorten">
-                <label for="nuortenkirjat">Nuortenkirjat</label>
-                <input type="radio" id="englanninkieliset" name="genre" value="english">
-                <label for="englanninkieliset">Englanninkielinen</label>
-                <input type="radio" id="e-kirjat" name="genre" value="e-kirjat">
-                <label for="e-kirjat">E-kirjat</label>
-                <input type="radio" id="aanikirjat" name="genre" value="aanikirjat">
-                <label for="aanikirjat">Äänikirjat</label>
+                <form action="" id="genreform">
+                <label for="fantasia">
+                    Fantasia
+                    <input type="checkbox" id="fantasia" name="genre" value="fantasia" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="kaunokirjallisuus">
+                    Kaunokirjallisuus
+                    <input type="checkbox" id="kaunokirjallisuus" name="genre" value="kauno" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="tietokirjallisuus">
+                    Tietokirjallisuus
+                    <input type="checkbox" id="tietokirjallisuus" name="genre" value="tieto" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="kauhu">
+                    Kauhu
+                    <input type="checkbox" id="kauhu" name="genre" value="kauhu" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="lastenkirjat">
+                    Lastenkirjat
+                    <input type="checkbox" id="lastenkirjat" name="genre" value="lasten" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="nuortenkirjat">
+                    Nuortenkirjat
+                    <input type="checkbox" id="nuortenkirjat" name="genre" value="nuorten" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="englanninkieliset">
+                    Englanninkielinen
+                    <input type="checkbox" id="englanninkieliset" name="genre" value="english" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="e-kirjat">
+                    E-kirjat
+                    <input type="checkbox" id="e-kirjat" name="genre" value="ekirjat" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <label for="aanikirjat">
+                    Äänikirjat
+                    <input type="checkbox" id="aanikirjat" name="genre" value="aanikirjat" class="custom-checkbox">
+                    <span class="checkmark"></span>
+                </label>
             </form>
         </div>
         <div class="suodatinrivi">
@@ -225,7 +253,10 @@
                 openingHours.textContent="Opening hours: Mon-Fri 9-18, Sat 10-16, Sun closed"
                 newsletter.textContent="Subscribe to our newsletter"
                 genreOptions.forEach((link, index) => link.textContent = genreOptionsEn[index]);
-                genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinEn[index]);
+                genreSuodatin.forEach((label, index) => {
+                const textNode = Array.from(label.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+                if (textNode) textNode.nodeValue = genreSuodatinEn[index];
+                });
                 h1.textContent="Non-fiction"
                 
                 kieli = 1
@@ -243,7 +274,10 @@
                 openingHours.textContent="Aukioloajat: Ma-Pe 9-18, La 10-16, Su suljettu"
                 newsletter.textContent="Tilaa uutiskirjeemme"
                 genreOptions.forEach((link, index) => link.textContent = genreOptionsFi[index]);
-                genreSuodatin.forEach((link, index) => link.textContent = genreSuodatinFi[index]);
+                genreSuodatin.forEach((label, index) => {
+                const textNode = Array.from(label.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
+                if (textNode) textNode.nodeValue = genreSuodatinFi[index];
+                });
                 h1.textContent="Tietokirjat"
 
                 kieli = 0

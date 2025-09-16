@@ -7,10 +7,14 @@ document.getElementById("searchWriter").addEventListener('submit', function (e) 
     Lahetys()
 });
 function Lahetys() {
-    let genre = "null"
+    let genre = ""
     let hintaRange = `${hintaMin}–${hintaMax}`
-    if (document.querySelector('input[name="genre"]:checked')) {
-        genre = document.querySelector('input[name="genre"]:checked').value
+    let selected = document.querySelectorAll('input[name="genre"]:checked');
+    if (selected.length > 0) {
+        selected.forEach(selectedE => {
+            genre += selectedE.value + "-";
+        });
+        //console.log(document.querySelectorAll('input[name="genre"]:checked'), genre)
     }
     const julkaisuvuosi = `${vuosiMin}–${vuosiMax}`
     const query = document.getElementById('searchInput').value.trim();
