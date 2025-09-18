@@ -10,4 +10,4 @@ Lainaa, Lisää toivelistaan ja Lisää ostoskoriin -nappulat puuttuvat kirjasiv
 kirjaudu.html, rekisteroidy.html ja uutiskirje.html kokonaan tyhjiä  
 ostoskori.html ja profiili.html kesken  
 Tietokanta ja backend kesken  
-Kirjojen listattujen genrejen parantelua  
+Uusien kirjojen lisäämistä eli (useimmille) genreistä kolmas rivi  

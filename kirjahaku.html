@@ -146,14 +146,14 @@
         </div>
     </footer>
     <script>
-        const Books = [
+        const Books = [ // Laita genret tärkeysjärjestyksessä. Muista päivittää myös kirjakaruselli.js
             ["Sapiens - Ihmisen lyhyt historia", "SapiensIhmisenLyhytHistoria.webp", "tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html", "Yuval Noah Harari", ["tieto"], 13.95, 2024],
             ["Let Them Theory", "TheLetThemTheory.webp", "tietokirjat/Let_Them_Theory.html", "Mel Robbins", ["tieto"], 34.95, 2024],
             ["5 Types of Wealth: A Transformative Guide to Design Your Dream Life", "The5TypesOfWealth.webp", "tietokirjat/5_Types_Of_Wealth.html", "Sahil Bloom", ["tieto", "english"], 29.95, 2025],
             ["Kylmä Krematorio", "KylmaKrematorio.webp", "tietokirjat/Kylma_krematorio.html", "József Debreczeni", ["tieto"], 31.95, 2025],
             ["Sinun tähtesi täällä", "SinunTahtesiTaalla.webp", "tietokirjat/Sinun_tahtesi_taalla.html", "Jenni Haukio", ["tieto"], 30.95, 2023],
             ["Sun Tzu's The Art of War", "SunTzu'sTheArtOfWar.avif", "tietokirjat/SunTzu'sTheArtOfWar.html", "Sun Tzu", ["tieto", "english"], 19.95, 2009],
-            ["Murha! - 100 mysteeriä nojatuolietsiville", "Murha100Mysteeria.webp", "tietokirjat/Murha!-100_mysteeria_nojatuolietsiville.html", "G. T. Karber", ["fantasia", "kauno"], 20.95, 2024],
+            ["Murha! - 100 mysteeriä nojatuolietsiville", "Murha100Mysteeria.webp", "tietokirjat/Murha!-100_mysteeria_nojatuolietsiville.html", "G. T. Karber", ["tieto", "kauno"], 20.95, 2024],
             ["Taru Sormusten Herrasta", "TaruSormustenHerrasta.webp", "fantasiakirjat/Taru_Sormusten_Herrasta.html", "J. R. R. Tolkien", ["fantasia", "kauno"], 56.95, 2023],
             ["Winds Of Winter", "WindsOfWinter.webp", "uutuudet/The_winds_of_winter.html", "George R. R. Martin", ["fantasia", "kauno", "english"], 34.95, 2027],
             ["Ratkomme murhia", "RatkommeMurhia.PNG", "uutuudet/Ratkomme_murhia.html", "Richard Osman", ["nuorten", "kauno"], 31.95, 2025],
@@ -219,16 +219,16 @@
             ["Kadonnut perintö", "KadonnutPerinto.webp", "kaunokirjallisuus/Kadonnut_perinto.html", "Virpi Hämeen-Anttila", ["kauno"], 31.95, 2025],
             ["Tex Willer Kirjasto 79: Pidättäkää Tex Willer!", "PidattakaaTexWiller.webp", "kaunokirjallisuus/Pidattakaa_Tex_Willer.html", "Gianluig Bonelli", ["kauno"], 26.95, 2025],
             ["Hobitti", "Hobitti.webp", "nuortenkirjat/Hobitti.html", "J. R. R. Tolkien", ["nuorten", "lasten", "kauno"], 26.95, 2020],
-            ["Skutsi", "Skutsi.webp", "nuortenkirjat/Skutsi.html", "Päivi Lukkarila", ["nuorten"], 26.95, 2024],
+            ["Skutsi", "Skutsi.webp", "nuortenkirjat/Skutsi.html", "Päivi Lukkarila", ["nuorten", "lasten", "kauno"], 26.95, 2024],
             ["The Inheritance Games: Viimeinen siirto", "InheritanceGamesViimeinenSiirto.webp", "nuortenkirjat/InheritanceGamesViimeinenSiirto.html", "Jennifer Lynn Barnes", ["nuorten"], 26.95, 2025],
             ["Kuudes kuolee", "KuudesKuolee.webp", "nuortenkirjat/Kuudes_kuolee.html", "Holly Jackson", ["nuorten", "kauno"], 29.95, 2025],
-            ["Meren koskettamat", "MerenKoskettamat.webp", "nuortenkirjat/Meren_koskettamat.html", "Leena Paasio", ["nuorten"], 25.95, 2024],
+            ["Meren koskettamat", "MerenKoskettamat.webp", "nuortenkirjat/Meren_koskettamat.html", "Leena Paasio", ["nuorten", "kauno"], 25.95, 2024],
             ["Percy Jackson – Kolmoisjumalattaren raivo", "PercyJacksonKolmoisjumalattarenRaivo.webp", "nuortenkirjat/PercyJacksonKolmoisjumalattarenRaivo.html", "Rick Riordan", ["nuorten"], 28.95],
             ["Taivaansinisen meren tuolla puolen", "TaivaansinisenMerenTuollaPuolen.webp", "nuortenkirjat/Taivaansinisen_meren_tuolla_puolen.html", "TJ Klune", ["nuorten", "kauno"], 31.95, 2025],
             ["Unohdettujen kirja", "UnohdettujenKirja.webp", "nuortenkirjat/Unohdettujen_kirja.html", "Anne-Maija Aalto", ["nuorten", "kauno"], 30.95, 2024],
             ["One Piece 104", "OnePiece104.webp", "nuortenkirjat/One_Piece_104.html", "Eiichiro Oda", ["nuorten"], 10.95, 2025],
             ["Kvanttikilpajuoksu", "Kvanttikilpajuoksu.webp", "e-kirjat/Kvanttikilpajuoksu.html", "Tommi Tenkanen", ["ekirjat", "tieto"], 15.95, 2025],
-            ["Jumalan synty - Isän ja Pojan kätketty historia", "JumalanSynty.webp", "e-kirjat/Jumalan_synty.html", "Ville Mäkipelto / Juha Pakkala / Raimo Hakola", ["ekirjat"], 19.95, 2025],
+            ["Jumalan synty - Isän ja Pojan kätketty historia", "JumalanSynty.webp", "e-kirjat/Jumalan_synty.html", "Ville Mäkipelto / Juha Pakkala / Raimo Hakola", ["ekirjat", "tieto"], 19.95, 2025],
             ["Vaikene kuin muuri", "VaikeneKuinMuuri.webp", "e-kirjat/Vaikene_kuin_muuri.html", "Maria Adolfsson", ["ekirjat", "kauno"], 14.95, 2025],
             ["Ctrl+Alt+Kaaos", "Ctrl+Alt+Kaaos.webp", "e-kirjat/Ctrl+Alt+Kaaos.html", "Joe Tidy", ["ekirjat", "tieto"], 21.95, 2025],
             ["Haltiain verta - The Witcher - Noituri 3", "HaltianVerta.webp", "e-kirjat/HaltianVerta.html", "Andrzej Sapkowski", ["ekirjat", "fantasia", "kauno"], 10.95, 2015],

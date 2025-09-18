@@ -12,6 +12,7 @@ const openingHours = document.querySelector(".opening-hours")
 const newsletter = document.querySelector(".newsletter a")
 const genreText = document.querySelectorAll(".kirjantiedot")[1]
 const kuvausOtsikko = document.querySelector(".kuvauscontainer .h2")
+const samagenreOtsikko = document.querySelector("#samagenreOtsikko")
 
 const genreOptionsFi = ["Fantasiakirjat", "Kaunokirjallisuus", "Tietokirjat", "Kauhukirjat", "Lastenkirjat", "Nuortenkirjat", "Englanninkieliset kirjat", "E-kirjat", "Äänikirjat"]
 const genreOptionsEn = ["Fantasy books", "Fiction", "Non-fiction", "Horror books", "Children's books", "Young adult books", "English books", "E-books", "Audiobooks"]
@@ -67,6 +68,7 @@ langSelect.addEventListener("change", () => {
                 break;
         }
         kuvausOtsikko.textContent = "Description"
+        samagenreOtsikko.textContent = "Books in the same genre"
         kieli = 1
         priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
         vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
@@ -118,6 +120,7 @@ langSelect.addEventListener("change", () => {
                 break;
         }
         kuvausOtsikko.textContent = "Kuvaus"
+        samagenreOtsikko.textContent = "Saman genren kirjoja"
         kieli = 0
         priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
         vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
