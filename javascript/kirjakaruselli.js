@@ -175,14 +175,23 @@ for (let j = 0; j < Books.length; j++) {
     }
 }
 genreBooks = shuffleArray(genreBooks).slice(0, 12);
+for (let j = 0; j < Books.length; j++) {
+    const book = Books[j];
+    if (book[2] !== currentBookUrl &&
+        currentGenres.every(genre => book[4].includes(genre)) && !genreBooks.includes(book)) {
+        genreBooks.push(book);
+    }
+}
+genreBooks = shuffleArray(genreBooks).slice(0, 12);
 console.log(genreBooks)
 let i = 0;
 while (genreBooks.length < 12 && currentGenres.length > i) {
     let extraBooks = [];
     for (let j = 0; j < Books.length; j++) {
         const book = Books[j];
-        if (book[2] !== currentBookUrl && !genreBooks.includes(book) && (book[4].every(genre => currentGenres[i] == genre) || (countSharedItems(book[4], currentGenres) > 1) && book[4].length/2 < countSharedItems(book[4], currentGenres))) {
+        if (book[2] !== currentBookUrl && !genreBooks.includes(book) && (book[4].every(genre => currentGenres[i] == genre) || (countSharedItems(book[4], currentGenres) > 1 && book[4].length/2 < countSharedItems(book[4], currentGenres)))) {
             extraBooks.push(book);
+            console.log("Lisätään kirja", book[0],)
         }
     }
     genreBooks = genreBooks.concat(shuffleArray(extraBooks));
