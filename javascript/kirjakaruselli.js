@@ -140,6 +140,9 @@ function shuffleArray(array) {
     }
     return array;
 }
+function countSharedItems(arr1, arr2) {
+    return arr1.filter(item => arr2.includes(item)).length;
+}
 // Initial setup
 window.addEventListener('DOMContentLoaded', () => {
     const tracks = document.querySelectorAll('.carousel-track');
@@ -178,15 +181,15 @@ while (genreBooks.length < 12 && currentGenres.length > i) {
     let extraBooks = [];
     for (let j = 0; j < Books.length; j++) {
         const book = Books[j];
-        if (book[2] !== currentBookUrl && !genreBooks.includes(book) &&
-            book[4].every(genre => currentGenres[i] == genre)) {
+        if (book[2] !== currentBookUrl && !genreBooks.includes(book) && (book[4].every(genre => currentGenres[i] == genre) || (countSharedItems(book[4], currentGenres) > 1) && book[4].length/2 < countSharedItems(book[4], currentGenres))) {
             extraBooks.push(book);
         }
     }
-    if(extraBooks.length + genreBooks.length > 12) { 
-        genreBooks = genreBooks.concat(shuffleArray(extraBooks));
+    genreBooks = genreBooks.concat(shuffleArray(extraBooks));
+    if(genreBooks.length > 12) { 
         break;
     }
+    extraBooks = [];
     for (let j = 0; j < Books.length; j++) {
         const book = Books[j];
         if (book[2] !== currentBookUrl && !genreBooks.includes(book) &&
@@ -221,7 +224,7 @@ if (track) {
         nextSlide('genre-carousel-track', e);
     };
 }
-/*
+/* Vanha tehokkaampi algoritmi, joka ei sekoita kirjoja
 let genreBooks = [];
 for (let j = 0; j < Books.length; j++) {
     const book = Books[j];
