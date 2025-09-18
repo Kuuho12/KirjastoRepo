@@ -133,7 +133,13 @@ function prevSlide(id, event) {
 }
 
 // ---------------------------------------------------------------------------------------
-
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap
+    }
+    return array;
+}
 // Initial setup
 window.addEventListener('DOMContentLoaded', () => {
     const tracks = document.querySelectorAll('.carousel-track');
@@ -163,23 +169,36 @@ for (let j = 0; j < Books.length; j++) {
         book[4].every(genre => currentGenres.includes(genre)) &&
         currentGenres.length === book[4].length) {
         genreBooks.push(book);
-        if (genreBooks.length >= 12) break;
     }
 }
+genreBooks = shuffleArray(genreBooks).slice(0, 12);
+console.log(genreBooks)
 let i = 0;
-while (genreBooks.length < 12 && i < Books.length && currentGenres.length > i) {
+while (genreBooks.length < 12 && currentGenres.length > i) {
+    let extraBooks = [];
     for (let j = 0; j < Books.length; j++) {
         const book = Books[j];
-        if (
-            book[2] !== currentBookUrl &&
-            !genreBooks.includes(book) &&
-            book[4].some(genre => currentGenres[i] == genre)) {
-            genreBooks.push(book);
-            if (genreBooks.length >= 12) break;
+        if (book[2] !== currentBookUrl && !genreBooks.includes(book) &&
+            book[4].every(genre => currentGenres[i] == genre)) {
+            extraBooks.push(book);
         }
     }
+    if(extraBooks.length + genreBooks.length > 12) { 
+        genreBooks = genreBooks.concat(shuffleArray(extraBooks));
+        break;
+    }
+    for (let j = 0; j < Books.length; j++) {
+        const book = Books[j];
+        if (book[2] !== currentBookUrl && !genreBooks.includes(book) &&
+            book[4].some(genre => currentGenres[i] == genre)) {
+            extraBooks.push(book);
+        }
+    }
+    genreBooks = genreBooks.concat(shuffleArray(extraBooks));
     i++;
 }
+genreBooks = genreBooks.slice(0, 12);
+console.log(genreBooks)
 // Render carousel items
 const track = document.getElementById('genre-carousel-track');
 if (track) {
@@ -202,3 +221,29 @@ if (track) {
         nextSlide('genre-carousel-track', e);
     };
 }
+/*
+let genreBooks = [];
+for (let j = 0; j < Books.length; j++) {
+    const book = Books[j];
+    if (book[2] !== currentBookUrl &&
+        book[4].every(genre => currentGenres.includes(genre)) &&
+        currentGenres.length === book[4].length) {
+        genreBooks.push(book);
+        if (genreBooks.length >= 12) break;
+    }
+}
+let i = 0;
+while (genreBooks.length < 12 && i < Books.length && currentGenres.length > i) {
+    for (let j = 0; j < Books.length; j++) {
+        const book = Books[j];
+        if (
+            book[2] !== currentBookUrl &&
+            !genreBooks.includes(book) &&
+            book[4].some(genre => currentGenres[i] == genre)) {
+            genreBooks.push(book);
+            if (genreBooks.length >= 12) break;
+        }
+    }
+    i++;
+}
+*/
