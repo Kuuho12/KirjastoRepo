@@ -10,6 +10,8 @@ const loginButton = document.querySelector(".login-button")
 const searchBar = document.querySelector(".kirjahaku input")
 const openingHours = document.querySelector(".opening-hours")
 const newsletter = document.querySelector(".newsletter a")
+const genreText = document.querySelectorAll(".kirjantiedot")[1]
+const kuvausOtsikko = document.querySelector(".kuvauscontainer .h2")
 
 const genreOptionsFi = ["Fantasiakirjat", "Kaunokirjallisuus", "Tietokirjat", "Kauhukirjat", "Lastenkirjat", "Nuortenkirjat", "Englanninkieliset kirjat", "E-kirjat", "Äänikirjat"]
 const genreOptionsEn = ["Fantasy books", "Fiction", "Non-fiction", "Horror books", "Children's books", "Young adult books", "English books", "E-books", "Audiobooks"]
@@ -33,6 +35,38 @@ langSelect.addEventListener("change", () => {
             const textNode = Array.from(label.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
             if (textNode) textNode.nodeValue = genreSuodatinEn[index];
         });
+        switch (genreText.textContent) {
+            case "Fantasiakirjat":
+                genreText.textContent = "Fantasy books";
+                break;
+            case "Kaunokirjallisuus":
+                genreText.textContent = "Fiction";
+                break;
+            case "Tietokirjat":
+                genreText.textContent = "Non-fiction";
+                break;
+            case "Kauhukirjat":
+                genreText.textContent = "Horror books";
+                break;
+            case "Lastenkirjat":
+                genreText.textContent = "Children's books";
+                break;
+            case "Nuortenkirjat":
+                genreText.textContent = "Young adult books";
+                break;
+            case "Englanninkieliset kirjat":
+                genreText.textContent = "English books";
+                break;
+            case "E-kirjat":
+                genreText.textContent = "E-books";
+                break;
+            case "Äänikirjat":
+                genreText.textContent = "Audiobooks";
+                break;
+            default:
+                break;
+        }
+        kuvausOtsikko.textContent = "Description"
         kieli = 1
         priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
         vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
@@ -52,6 +86,38 @@ langSelect.addEventListener("change", () => {
             const textNode = Array.from(label.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
             if (textNode) textNode.nodeValue = genreSuodatinFi[index];
         });
+        switch (genreText.textContent) {
+            case "Fantasy books":
+                genreText.textContent = "Fantasiakirjat";
+                break;
+            case "Fiction":
+                genreText.textContent = "Kaunokirjallisuus";
+                break;
+            case "Non-fiction":
+                genreText.textContent = "Tietokirjat";
+                break;
+            case "Horror books":
+                genreText.textContent = "Kauhukirjat";
+                break;
+            case "Children's books":
+                genreText.textContent = "Lastenkirjat";
+                break;
+            case "Young adult books":
+                genreText.textContent = "Nuortenkirjat";
+                break;
+            case "English books":
+                genreText.textContent = "Englanninkieliset kirjat";
+                break;
+            case "E-books":
+                genreText.textContent = "E-kirjat";
+                break;
+            case "Audiobooks":
+                genreText.textContent = "Äänikirjat";
+                break;
+            default:
+                break;
+        }
+        kuvausOtsikko.textContent = "Kuvaus"
         kieli = 0
         priceRange.textContent = `${labelTekstit[kieli][0]}: ${hintaMin}–${hintaMax} €`;
         vuosiRange.textContent = `${labelTekstit[kieli][1]}: ${vuosiMin}–${vuosiMax}`;
