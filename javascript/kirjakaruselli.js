@@ -1,6 +1,6 @@
 const Books = [ // Laita genret tärkeysjärjestyksessä. Muista päivittää myös kirjahaku.html
     ["Sapiens - Ihmisen lyhyt historia", "SapiensIhmisenLyhytHistoria.webp", "tietokirjat/Sapiens-Ihmisen_lyhyt_historia.html", "Yuval Noah Harari", ["tieto"], 13.95, 2024],
-    ["Let Them Theory", "TheLetThemTheory.webp", "tietokirjat/Let_Them_Theory.html", "Mel Robbins", ["tieto"], 34.95, 2024],
+    ["Let Them Theory", "TheLetThemTheory.webp", "tietokirjat/Let_Them_Theory.html", "Mel Robbins", ["tieto", "english"], 34.95, 2024],
     ["5 Types of Wealth: A Transformative Guide to Design Your Dream Life", "The5TypesOfWealth.webp", "tietokirjat/5_Types_Of_Wealth.html", "Sahil Bloom", ["tieto", "english"], 29.95, 2025],
     ["Kylmä Krematorio", "KylmaKrematorio.webp", "tietokirjat/Kylma_krematorio.html", "József Debreczeni", ["tieto"], 31.95, 2025],
     ["Sinun tähtesi täällä", "SinunTahtesiTaalla.webp", "tietokirjat/Sinun_tahtesi_taalla.html", "Jenni Haukio", ["tieto"], 30.95, 2023],
@@ -47,7 +47,7 @@ const Books = [ // Laita genret tärkeysjärjestyksessä. Muista päivittää my
     ["The Strawberry Patch Pancake House", "StrawberryPatchPancakeHouse.webp", "englanninkieliset/StrawberryPatchPancakeHouse.html", "Laurie Gilmore", ["kauno", "english"], 18.95, 2025],
     ["The Great Gatsby", "TheGreatGatsby.webp", "englanninkieliset/GreatGatsby.html", "F Scott Fitzgeral", ["kauno", "english"], 29.95, 2025],
     ["A Court of Wings and Ruin", "CourtOfWingsAndRuin.webp", "fantasiakirjat/A_Cuort_of_Wings_and_Ruin", "Sarah J. Maas", ["fantasia", "kauno", "english"], 18.95, 2020],
-    ["Luvattu maa", "LuvattuMaaObama.jpg", "tietokirjat/Luvattu_maa", "Barack Obama", ["tieto"], 15.95, 2022],
+    ["Luvattu maa", "LuvattuMaaObama.jpg", "tietokirjat/Luvattu_maa.html", "Barack Obama", ["tieto"], 15.95, 2022],
     ["Myrksynsilmä", "MyrskynSilma.webp", "fantasiakirjat/Myrskynsilma.html", "Rebecca Yarros", ["fantasia", "kauno"], 29.95, 2025],
     ["Kohtalon miekka - The Witcher - Noituri 2", "WitcherKohtalonMiekka.webp", "fantasiakirjat/Kohtalon_miekka.html", "Andrzej Sapkowski", ["fantasia", "kauno"], 25.95, 2020],
     ["Rautaliekki", "RautaLiekki.webp", "fantasiakirjat/Rautaliekki.html", "Rebecca Yarros", ["fantasia", "kauno"], 29.95, 2024],
@@ -156,8 +156,17 @@ const currentBook = Books.find(book => book[2] === currentBookUrl);
 const currentGenres = currentBook ? currentBook[4] : [];
 
 // Filter books by prioritized genre, exclude current book, limit to 12
-let i = 0;
 let genreBooks = [];
+for (let j = 0; j < Books.length; j++) {
+    const book = Books[j];
+    if (book[2] !== currentBookUrl &&
+        book[4].every(genre => currentGenres.includes(genre)) &&
+        currentGenres.length === book[4].length) {
+        genreBooks.push(book);
+        if (genreBooks.length >= 12) break;
+    }
+}
+let i = 0;
 while (genreBooks.length < 12 && i < Books.length && currentGenres.length > i) {
     for (let j = 0; j < Books.length; j++) {
         const book = Books[j];
